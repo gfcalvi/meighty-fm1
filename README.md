@@ -1,11 +1,5 @@
-# Meighty 1.00 / Suite offline 1.2
+# Meighty 1.01 RC3 / Suite offline 1.4
 
-Suite Tiffany per M-Wave FM-1. Firmware identico a HW9 già collaudata.
-Apri index.html tramite GitHub Pages HTTPS in MIDIWeb Browser.
-Scegli Make Available Offline: la pagina include tutti e quattro gli strumenti.
-Poi usa la copia offline senza PC. Non usare Apri con da File.
+Apri [la suite HTTPS](https://gfcalvi.github.io/meighty-fm1/) in MIDIWeb Browser e scegli **Make Available Offline**. Poi usa la copia offline senza Mac o rete.
 
-Installazione, Backup/Restore, Convertitore, Progetti/slot (0–8 brani).
-26 controlli browser superati, MIDI simulato; collaudo fisico nuova suite ancora da eseguire.
-Non contiene salvataggi personali. Nessun caricamento dei backup a server.
-Guide/licenze/sorgenti inclusi. Nessun login o dipendenza da ChatGPT.
+Global più leggibile, Init prima di Load/Save, nomi Meighty, correzioni USB e slot, recupero parziale dei backup. Guida INIZIA-QUI aggiornata. RC2: ciclo browser Bloomy → Meighty → Bloomy e Save/Load dello slot 2 con spegnimento collaudati sul Mac. RC3 e test iPhone: vedere VERIFICHE.json. Nessun salvataggio personale incluso.

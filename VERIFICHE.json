@@ -6,7 +6,7 @@
     "file": "Meighty-1.01-RC3.fwsc",
     "sha256": "e036bfa6d517b6018137c56cdb32d22e6a71fb936f57aba06e8c22dbe2a40851"
   },
-  "status": "RC3_SOFTWARE_VERIFIED_PHYSICAL_INSTALL_PENDING",
+  "status": "RC3_INSTALLED_AND_USER_CONFIRMED",
   "build": {
     "target": "FM1 hardware candidate PI32v2",
     "image_bytes": 547568,
@@ -145,9 +145,20 @@
   },
   "limits": [
     "RC2 hardware evidence is not a claim all eight slots were physically tested.",
-    "RC3 final physical results will be recorded after installation.",
     "iPhone MIDIWeb/offline and Firmware Hub Tessera/Skiff are pending user tests.",
     "No personal backup payload included.",
     "Existing musical PDF and historical RemoteFM1 Follow module retained."
-  ]
+  ],
+  "physical_rc3": {
+    "date": "2026-11-09",
+    "standard_browser_install": "PASS",
+    "usb_reconnect": "FM-1_998201 / Meighty 1.01 / HW12",
+    "user_confirmed": [
+      "Global 1.01 RC3",
+      "orange status",
+      "Init before Load",
+      "normal instrument note"
+    ],
+    "slots": "Not initialized or written this RC3 session"
+  }
 }
