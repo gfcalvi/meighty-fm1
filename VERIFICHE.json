@@ -1,42 +1,153 @@
 {
-  "release": "Meighty 1.00",
-  "date": "2026-11-08",
-  "hardware": "Exact tested HW9; no firmware rebuild",
-  "firmwareSHA256": "a602086c0fb00d3ddbeceb66227914fa7d953b4f6ab858325199bdfddade49f7",
-  "hardwareUserConfirmation": "HW9: Si, funziona tutto; previous HW8 MAX 2745 us / LATE 0",
-  "softwareTests": [
-    "0–8 songs and sparse slots",
-    "Meighty/legacy bank/RemoteFM1/Emulator roundtrips",
-    "10788/11812 byte payload migration",
-    "checksum, truncation and corrupt-slot rejection",
-    "RAM preservation and explicit loss acknowledgment",
-    "exact replace writes empty New Project; merge leaves other slots intact",
-    "LZFSE decoder compressed-state roundtrip",
-    "browser import sparse slots 1,4,8",
-    "browser ZIP CRC and individual extraction verified with Python zipfile",
-    "browser composed set slots 1,3,8 verified after download",
-    "Same verified Bloomy shell and iframe MIDI permissions, with TIFFANY colors",
-    "No extension filters, no native confirm, explicit download/share result buttons"
-  ],
-  "pendingPhysicalTests": [
-    "New standalone suite USB MIDI install transport",
-    "New suite project backup and restore readback on physical device",
-    "New standalone pages on iPhone/iPad MIDIWeb Browser"
-  ],
-  "iosReference": "Current Bloomy Offline 1.2: one embedded-page suite; parent navigator MIDI bridge; Make Available Offline; initial HTTPS static hosting then saved offline. LAN is optional development fallback. File open-with failed and is not recommended.",
-  "emptySlots": "0–8 occupied positions. Exact restore writes a saved empty project to blank positions; merge writes occupied positions only.",
-  "remoteCore": "Existing frozen follow-20261105 module; technical ID/version retained; not rebuilt as hardware 1.00",
-  "palette": "Tiffany suite UI; optional new-set palette changes only two project color-role bytes; frozen hardware defaults unchanged",
-  "toolsRevision": "1.2",
-  "browserSuiteTests": {
-    "interface": {
-      "passed": 21,
-      "failed": 0
+  "date": "2026-11-09",
+  "release": "Meighty 1.01 RC3 / HW12",
+  "suite": "1.4",
+  "firmware": {
+    "file": "Meighty-1.01-RC3.fwsc",
+    "sha256": "e036bfa6d517b6018137c56cdb32d22e6a71fb936f57aba06e8c22dbe2a40851"
+  },
+  "status": "RC3_SOFTWARE_VERIFIED_PHYSICAL_INSTALL_PENDING",
+  "build": {
+    "target": "FM1 hardware candidate PI32v2",
+    "image_bytes": 547568,
+    "package_bytes": 611083,
+    "sha256": "e036bfa6d517b6018137c56cdb32d22e6a71fb936f57aba06e8c22dbe2a40851",
+    "storage": "8 transactional slots 0xaf000..0xdefff; OTA 0xe0000..0xe4fff excluded",
+    "hardware_validated": false
+  },
+  "loader": {
+    "image_bytes": 9436,
+    "ota_bytes": 7927,
+    "sha256": "bacc01d01ad93c349ca35f9dc46326068c26023809c403eef26f843cd5bf8e9b",
+    "jedec": [
+      "0x856014",
+      "0xB36014"
+    ],
+    "ram_only": true
+  },
+  "physical_rc2_roundtrip": {
+    "date": "2026-11-09",
+    "firmware_sha256": "c57f1db72ea628634f71fef217a46050eb38b91ac00ba5f1ad890f206b57f8c6",
+    "meighty_install": {
+      "method": "Chrome standard Web MIDI installer, localhost RC2 package",
+      "from": "FM-1_10010000",
+      "to": "FM-1_998201",
+      "metadata": "Meighty 1.01 / HW11",
+      "user_confirms": "Meighty screen, Global 1.01 RC2 and clean Instrument note"
     },
-    "shell": {
-      "passed": 5,
-      "failed": 0
+    "backup": {
+      "mode": "read only",
+      "result": "Meighty-recupero-PARZIALE.zip",
+      "bytes": 17528,
+      "unreadable_slots": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "ram": "read, validated and included",
+      "download": "button activated; disk save not independently verified",
+      "slot_writes": 0
     },
-    "deviceTransport": "mocked; no physical writes"
-  }
+    "rollback": {
+      "method": "Existing public Bloomy standard installer via Chrome Web MIDI",
+      "from": "FM-1_998201",
+      "verify_requests": 36,
+      "loader_detected": true,
+      "write_requests": 2323,
+      "final_identity": "FM-1_10010000",
+      "final_status": "Bloomy 1.0.0-blue installata, con i suoni.",
+      "m_flasher_used": false
+    },
+    "current_hardware": "Bloomy 1.0",
+    "not_tested": [
+      "Tessera/Skiff via Firmware Hub",
+      "iPhone MIDIWeb offline",
+      "slot initialisation/Save/Load",
+      "complete valid bank backup and restore"
+    ]
+  },
+  "physical_slot2_rc2": {
+    "date": "2026-11-09",
+    "firmware": "Meighty 1.01 RC2 / HW11",
+    "firmware_sha256": "c57f1db72ea628634f71fef217a46050eb38b91ac00ba5f1ad890f206b57f8c6",
+    "scope": "User explicitly authorised reinstall RC2 and initialise only slot 2 (24 KiB)",
+    "native_panel_actions_by_user": true,
+    "browser_probe": "read only: metadata, slot 2 snapshot, RAM snapshot; CRC32 and project validation; complete 11940-byte SHA256 comparison",
+    "checks": [
+      {
+        "time": "2026-11-09T15:15:17.654Z",
+        "action": "after native Init slot 2",
+        "slot_status": 7,
+        "ram_bpm": 120,
+        "ram_valid": true,
+        "ram_sha256": "859e43e24222900e06e8555c125cadb2043b3870bb67fb8aae850e13110831bf"
+      },
+      {
+        "time": "2026-11-09T15:16:24.437Z",
+        "action": "after native Save slot 2",
+        "slot_bpm": 137,
+        "ram_bpm": 137,
+        "slot_sha256": "2f9fbd6a45f5ffc86da33bb6851c083cef02c0ed44e074e941d2dee6900bbecd",
+        "ram_sha256": "2f9fbd6a45f5ffc86da33bb6851c083cef02c0ed44e074e941d2dee6900bbecd",
+        "match": true
+      },
+      {
+        "time": "2026-11-09T15:18:05.357Z",
+        "action": "RAM tempo changed without Save",
+        "slot_bpm": 137,
+        "ram_bpm": 141,
+        "slot_sha256": "2f9fbd6a45f5ffc86da33bb6851c083cef02c0ed44e074e941d2dee6900bbecd",
+        "ram_sha256": "2f900746bfa67f05e61da7b9be9c88f78c0f7f8f92bee7191ff482bee40e630a",
+        "slot_unchanged": true
+      },
+      {
+        "time": "2026-11-09T15:19:39.271Z",
+        "action": "native Load slot 2",
+        "slot_sha256": "2f9fbd6a45f5ffc86da33bb6851c083cef02c0ed44e074e941d2dee6900bbecd",
+        "ram_sha256": "2f9fbd6a45f5ffc86da33bb6851c083cef02c0ed44e074e941d2dee6900bbecd",
+        "match": true,
+        "user_confirms": "LOADED SLOT 2 and 137 BPM"
+      },
+      {
+        "time": "2026-11-09T15:21:26.795Z",
+        "action": "power off/on then native Load slot 2",
+        "slot_bpm": 137,
+        "ram_bpm": 137,
+        "slot_sha256": "2f9fbd6a45f5ffc86da33bb6851c083cef02c0ed44e074e941d2dee6900bbecd",
+        "ram_sha256": "2f9fbd6a45f5ffc86da33bb6851c083cef02c0ed44e074e941d2dee6900bbecd",
+        "match": true,
+        "user_confirms": "si ricarica 137 bpm"
+      }
+    ],
+    "result": "PASS native initialisation, first Save, RAM independence, Load and persistence after power cycle on slot 2",
+    "limits": [
+      "Physical test performed on slot 2 only",
+      "Overwriting an already saved slot (second generation) not tested physically",
+      "Other slots left outside authorised test; remain unreadable until explicitly initialised or recovered",
+      "No firmware hub or iPhone tests in this scope"
+    ],
+    "current_hardware": "RC2/HW11, slot 2 saved and loaded at 137 BPM",
+    "rc3": "User requested to wait before regenerating RC3. An initial build already existed with Init before Load, but was never installed/published. Stop all RC3 work until user resumes."
+  },
+  "software_tests": {
+    "logic_cases": 786,
+    "browser_interface": 28,
+    "browser_shell": 5,
+    "native_device": "PASS ASan/UBSan; Song selected-row start and live launch",
+    "global_order": "PASS Global order: Project slot, Init, Load, Save; both directions; Init cancelled by movement; correct Load/Save actions\n",
+    "usb": "PASS descriptors and update/SysEx flow; names Meighty",
+    "loader_and_ota": "See release test log"
+  },
+  "limits": [
+    "RC2 hardware evidence is not a claim all eight slots were physically tested.",
+    "RC3 final physical results will be recorded after installation.",
+    "iPhone MIDIWeb/offline and Firmware Hub Tessera/Skiff are pending user tests.",
+    "No personal backup payload included.",
+    "Existing musical PDF and historical RemoteFM1 Follow module retained."
+  ]
 }
