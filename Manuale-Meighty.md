@@ -1,6 +1,6 @@
 # Meighty — Manuale utente italiano
 
-Edizione del 5 novembre 2026 per il firmware follow-20261105. Questa guida accompagna la composizione su otto tracce: scelta dei suoni, Phrase e Chain, arrangiamento, modulazioni, mixer ed effetti. Il laboratorio mostra come combinare gli FX; il riferimento finale documenta tutti i comandi e le differenze nelle Table.
+Edizione del 12 novembre 2026, aggiornata per Meighty 1.01 RC7 / HW16. Questa guida accompagna la composizione su otto tracce: scelta dei suoni, Phrase e Chain, arrangiamento, modulazioni, mixer ed effetti. Il laboratorio mostra come combinare gli FX; il riferimento finale documenta tutti i comandi e le differenze nelle Table.
 
 I nomi sul display restano in inglese. K1–K4 indicano i quattro encoder da sinistra a destra; i valori FX sono esadecimali. La guida riguarda soprattutto RemoteFM1 su iPhone e iPad; formati e collegamenti degli altri ambienti sono distinti nel capitolo 8.
 
@@ -53,7 +53,7 @@ ARP | Catalogo preset in Instrument
 
 REC | Azione contestuale della pagina
 
-SELECT sceglie la traccia; ALGORITHM scorre le righe. K1–K4 sono i quattro rotativi: la legenda in basso indica la funzione nella pagina. PRESETS cambia vista e non carica un suono da solo. Per aprire un ID diverso da 00 usa K3 nella pagina dell’oggetto: cambiare traccia non segue automaticamente tutti i riferimenti della Song.
+SELECT sceglie la traccia; ALGORITHM scorre le righe. Da RC7, entrando in Chain da Song si apre la Chain assegnata alla traccia e alla riga selezionate. SELECT in Chain apre la Chain della nuova traccia; il numero C00–C1F è indicato in alto, C-- indica assenza di assegnazione. K3 permette sempre la scelta manuale dal pool. Nella pagina Phrase, SELECT apre anche la Phrase della nuova traccia: durante PLAY segue la posizione in esecuzione; da fermo usa la riga Song scelta e la posizione Chain scelta (la prima se arrivi direttamente da Song). Una posizione senza assegnazione mostra P-- / NO PHRASE e non modifica la Phrase precedente. K3 permette ancora di scegliere esplicitamente una Phrase dal pool, anche non assegnata. Le Phrase sono condivise: due tracce che richiamano lo stesso ID modificano lo stesso oggetto. K1–K4 sono i quattro rotativi: la legenda in basso indica la funzione nella pagina. PRESETS cambia vista e non carica un suono da solo.
 
 
 ## Scegliere un suono nello slot I00
@@ -2922,6 +2922,8 @@ Il fader runtime resta basso anche sulla nota nuova della 04 e aumenta sulla 08.
 Nelle Table. Può trasformare una Table in automazione del mixer. I repeater Table avanzano alla velocità TIC e condividono il risultato con il fader visualizzato.
 
 Da controllare. Se il volume sembra ripartire a ogni nota stai probabilmente usando VOL; LEV è il livello della traccia.
+
+Se il fader del mixer risale quando avvii PLAY, cerca invece LEV nelle Phrase e nelle Table: ogni esecuzione del comando prevale sul fader manuale. Esempio nel file originale di Oltre le dune: T4 ha LEV E1 nella Phrase 18, riga 00; T5 nella Phrase 1F, riga 02; T6 nella Phrase 26, riga 04. Nella prima riga Song di Oltre le dune, T4 richiama Chain 0C: contiene 18, 3B, 3B, 3B. Chain 00 contiene invece 00, 01, 00, 01. Prima di RC7, il pulsante Chain apriva sempre 00: seleziona manualmente 0C con K3 per ispezionare quella della traccia 4. Sono ID e righe esadecimali: P18 significa Phrase numero 18 in base 16 (24 decimale), non traccia 18; riga 00 è il primo step. E1 è 225/255, circa 88%. Eliminare VOL non elimina questa automazione. Per bilanciare liberamente la traccia, rimuovi LEV anche nelle variazioni successive e nelle eventuali Table; per conservare l’arco programmato, modifica i valori LEV. LEV 00 silenzia la traccia: non cancella il comando. STOP ripristina il livello base salvato nel mixer.
 
 
 ### PAN Posizione stereo della traccia

@@ -6,7 +6,7 @@ from urllib.parse import urlsplit
 import argparse,mimetypes,webbrowser,socket
 base=Path(__file__).resolve().parent
 p=argparse.ArgumentParser();p.add_argument('--no-browser',action='store_true');p.add_argument('--lan',action='store_true');p.add_argument('--port',type=int,default=8799);a=p.parse_args()
-names=['Meighty.html','Installazione.html','Backup.html','Slot-e-Convertitore.html','LEGGIMI.html','Manuale-Meighty.pdf','Meighty-1.01-RC6.fwsc','Sorgenti.zip','MANIFEST.json','SHA256SUMS','LICENSE-Meighty.md','LICENSE-LZFSE.txt']
+names=['Meighty.html','Installazione.html','Backup.html','Slot-e-Convertitore.html','LEGGIMI.html','Manuale-Meighty.pdf','Meighty-1.01-RC7.fwsc','Sorgenti.zip','MANIFEST.json','SHA256SUMS','LICENSE-Meighty.md','LICENSE-LZFSE.txt']
 allowed={n:base/n for n in names}
 for f in (base/'RemoteFM1').glob('*.rfm1'):allowed['RemoteFM1/'+f.name]=f
 class Handler(BaseHTTPRequestHandler):
@@ -21,7 +21,7 @@ class Handler(BaseHTTPRequestHandler):
 url='http://127.0.0.1:'+str(a.port)+'/Meighty.html'
 try:server=ThreadingHTTPServer(('0.0.0.0' if a.lan else '127.0.0.1',a.port),Handler)
 except OSError as e:raise SystemExit('Porta locale occupata o non disponibile: '+str(e))
-print('Meighty 1.01 RC6 / caricamento brani: '+url+'\nCTRL+C chiude il server.',flush=True)
+print('Meighty 1.01 RC7 / caricamento brani: '+url+'\nCTRL+C chiude il server.',flush=True)
 if a.lan:
  try:
   with socket.socket(socket.AF_INET,socket.SOCK_DGRAM) as s:

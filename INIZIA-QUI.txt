@@ -1,6 +1,8 @@
-MEIGHTY 1.01 RC6 / HW15 — TOOLS 2.0
+MEIGHTY 1.01 RC7 / HW16 — TOOLS 2.0
 
 FIRMWARE
+Entrando in Chain da Song si apre la Chain della cella scelta; SELECT sceglie la Chain della nuova traccia e il numero Cxx è visibile in alto.
+SELECT nella pagina Phrase segue la nuova traccia: durante PLAY la frase in esecuzione, da fermo la posizione Song/Chain selezionata. P-- / NO PHRASE indica una posizione non assegnata; K3 permette comunque la scelta manuale dal pool.
 Slot sempre pronti: Load apre, Save salva, Clear svuota con una conferma.
 S1–S8 sul display indica lo slot effettivamente aperto; S-- indica un progetto non associato.
 La destinazione scelta in Global è distinta dal progetto aperto. SAVE fisico salva lo slot aperto; Save slot in Global salva nella destinazione scelta.
@@ -16,9 +18,9 @@ Lo slot aperto sempre visibile è una funzione del firmware, non dei tools.
 
 INSTALLAZIONE / iPHONE
 Apri https://gfcalvi.github.io/meighty-fm1/ in Chrome Mac/PC o MIDIWeb Browser su iPhone/iPad USB-C.
-Pagina Firmware → Installa RC6 → conferma. Non scollegare durante la scrittura.
+Pagina Firmware → Installa RC7 → conferma. Non scollegare durante la scrittura.
 Su MIDIWeb aggiorna Make Available Offline dopo aver caricato la nuova pagina HTTPS: sostituisce la vecchia copia; il Mac non serve in mobilità.
-La gestione diretta degli slot richiede RC6/HW15. Il ritorno alla RC3 rimane in Ritorno-RC3.html.
+La gestione diretta degli slot richiede RC7/HW16. Il ritorno alla RC3 rimane in Ritorno-RC3.html.
 Nel pacchetto iOS non servono launcher .command. Sul Mac il launcher richiede Python3; il sito HTTPS evita il launcher.
 
 VERIFICHE E LIMITI
