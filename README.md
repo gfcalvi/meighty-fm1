@@ -1,5 +1,7 @@
-# Meighty 1.01 RC3 / Suite offline 1.4
+# Meighty 1.01 RC3 / Tools offline 1.5
 
-Apri [la suite HTTPS](https://gfcalvi.github.io/meighty-fm1/) in MIDIWeb Browser e scegli **Make Available Offline**. Poi usa la copia offline senza Mac o rete.
+[Apri la suite](https://gfcalvi.github.io/meighty-fm1/). Firmware HW12 invariato.
 
-Global più leggibile, Init prima di Load/Save, nomi Meighty, correzioni USB e slot, recupero parziale dei backup. Guida INIZIA-QUI aggiornata. RC2: ciclo browser Bloomy → Meighty → Bloomy e Save/Load dello slot 2 con spegnimento collaudati sul Mac. RC3 e test iPhone: vedere VERIFICHE.json. Nessun salvataggio personale incluso.
+Pagina unica senza iframe, selettori file nativi visibili, pulsanti con spiegazione dei prerequisiti, destinazione esplicita per il brano singolo, backup delle sole destinazioni prima di scrivere. Gli altri slot non vengono modificati.
+
+Aggiornare **Make Available Offline** in MIDIWeb Browser. Test software: 118 controlli, incluso Oltre le dune. Nuovi tools non ancora collaudati fisicamente su iPhone.

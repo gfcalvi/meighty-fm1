@@ -1,7 +1,7 @@
 {
   "date": "2026-11-09",
   "release": "Meighty 1.01 RC3 / HW12",
-  "suite": "1.4",
+  "suite": "1.5",
   "firmware": {
     "file": "Meighty-1.01-RC3.fwsc",
     "sha256": "e036bfa6d517b6018137c56cdb32d22e6a71fb936f57aba06e8c22dbe2a40851"
@@ -160,5 +160,13 @@
       "normal instrument note"
     ],
     "slots": "Not initialized or written this RC3 session"
+  },
+  "tools_1_5": {
+    "date": "2026-11-11",
+    "software_checks": 118,
+    "real_song": "Oltre le dune .rfm1state and converted .meighty match; 98 BPM",
+    "architecture": "single top-level document; no iframe; visible native file controls",
+    "hardware_tests": "pending; no device writes in this tools update",
+    "firmware_unchanged": "e036bfa6d517b6018137c56cdb32d22e6a71fb936f57aba06e8c22dbe2a40851"
   }
 }

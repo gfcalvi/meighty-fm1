@@ -1,0 +1,7 @@
+MEIGHTY RC3 / TOOLS 1.5 — 11 novembre 2026
+Firmware invariato. I tools sono una singola pagina senza iframe.
+Apri HTTPS in MIDIWeb e aggiorna Make Available Offline.
+Caricamento brano: Backup e ripristino → scegli file → destinazione → Connetti → Prepara → conserva backup destinazioni → conferma → Ripristina.
+Per scegliere brani e set senza passare da file intermedi: Slot e convertitore → Carica questo set su FM-1.
+Il backup delle destinazioni protegge solo gli slot modificati. Se uno di questi è corrotto/estraneo, nessuna scrittura: inizializzalo esplicitamente dal dispositivo solo se vuoi cancellarlo.
+Test software 118 controlli superati. Mac/iPhone fisici ancora da collaudare.
