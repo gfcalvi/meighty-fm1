@@ -1,0 +1,43 @@
+# Caricare e aprire un brano — RC5/HW14 e Tools 1.6
+Un trasferimento nelle versioni precedenti modificava la copia salvata nello slot,
+ma lasciava aperto il vecchio progetto in RAM. RC5 aggiunge un comando esplicito
+di apertura; il tool lo usa dopo avere verificato la scrittura del brano singolo.
+
+1. Installa RC5 dall’installer principale; in Global verifica 1.01 RC5.
+2. Su iPhone aggiorna Make Available Offline. Il titolo deve indicare Tools 1.6.
+3. Apri Backup e ripristino, scegli il file e la destinazione.
+4. Lascia attivo Apri il brano sull’FM-1 dopo il trasferimento, in modalità Aggiorna.
+5. Collega FM-1 e prepara il ripristino: il backup conserva lo slot interessato
+   e anche il progetto attualmente aperto in RAM. Scaricalo e conservalo.
+6. Spunta la conferma e premi Ripristina e verifica.
+7. Attendi APERTO E VERIFICATO: slot, BPM e numero di righe sono mostrati.
+   Premi PLAY: non serve più Load sul dispositivo.
+
+Se lasci disattivata l’apertura, oppure ripristini una banca di più slot, il tool
+scrive gli slot senza cambiare la RAM e lo dichiara chiaramente. In quel caso
+usa Global → Project slot → Load per scegliere quale brano aprire.
+Su RC3/RC4 il tool chiede RC5 prima di scrivere se l’apertura è selezionata.
+Puoi togliere la spunta per usare il vecchio trasferimento solo su memoria.
+
+Il rapporto sotto i pulsanti mostra file, versione collegata, fasi, errori e SHA256.
+Distingue SALVATO E VERIFICATO da APERTO E VERIFICATO. Se qualcosa si ferma,
+copia l’ultimo messaggio del rapporto. Si può riprovare lo stesso file: il selettore
+viene azzerato dopo ogni scelta, evitando che una seconda selezione sia ignorata.
+
+Gli slot estranei/corrotti non vengono cancellati automaticamente. Se la destinazione
+lo richiede, inizializza solo quella dal pannello. Un posto già vuoto non richiede Init.
+Il progetto in RAM è sostituito solo con l’apertura richiesta dopo averne conservato
+la copia nel backup preventivo.
+
+Riferimenti dei due esempi originali:
+- Oltre le dune: 98 BPM, 29 righe Song.
+- Orbite profonde: 82 BPM, 29 righe Song.
+I dati dei .meighty convertiti coincidono con gli stati originali.
+Il test usa il client JavaScript vero, il dispatcher C del firmware e NOR simulata:
+entrambi i brani su tutti otto gli slot, prima e seconda generazione, CRC/SHA,
+rilettura e verifica della RAM dopo apertura. Non equivale a una prova USB fisica.
+Oltre le dune è stato confermato dall’utente sul dispositivo con il vecchio Load manuale.
+Il problema fisico di Orbite profonde non è ancora riprodotto sul dispositivo.
+
+Ritorno a RC3: Ritorno-RC3.html. Per il ritorno senza rete su iPhone salva anche quella
+pagina separatamente con Make Available Offline.
