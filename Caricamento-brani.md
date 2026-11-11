@@ -1,7 +1,7 @@
-# Caricamento brani — RC6 / Tools 2.0
+# Caricamento — Tools 2.1
 
-Apri la suite, scegli il file e lo slot di destinazione e premi **Carica su FM-1**. Il progetto viene scritto, verificato e aperto automaticamente: poi premi PLAY. Nessuna inizializzazione, preparazione o backup obbligatorio.
+Nella scheda Ripristino / Caricamento apri un backup, un set o scegli file nelle singole caselle1–8. Premi Carica gli slot selezionati. Sono scritti e verificati solo gli slot compilati; le caselle Non modificare lasciano invariati i corrispondenti slot dell’FM-1. Alla fine si apre il primo trasferito: poi PLAY.
 
-I backup si scaricano dalla pagina Backup. Clear slot richiede una conferma; Load apre e Save salva. Lo slot effettivamente aperto è sempre indicato sul display del firmware, non nella pagina dei tools.
+Esempio: un file nella casella2 scrive soltanto slot2. Nessuna inizializzazione, preparazione o backup obbligatorio. Load, Save e Clear si usano sul firmware: non sono nei tools.
 
-Installa RC6/HW15 dalla pagina Firmware e aggiorna Make Available Offline su MIDIWeb. I nuovi percorsi sono verificati con test software; il collaudo fisico su Mac/iPhone è ancora da confermare.
+Le altre schede sono Firmware, Backup ed estrazione e Conversione. Aggiorna Make Available Offline in MIDIWeb dopo aver aperto il sito HTTPS. Firmware inclusoRC7/HW16;116controlli software dei nuovi tools passati, collaudo browser/USB fisico da confermare.

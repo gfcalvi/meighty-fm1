@@ -1,6 +1,6 @@
-# Meighty 1.01 RC7 / Tools 2.0
+# Meighty 1.01 RC7 / Tools 2.1
 
-MEIGHTY 1.01 RC7 / HW16 — TOOLS 2.0
+MEIGHTY 1.01 RC7 / HW16 — TOOLS 2.1
 
 FIRMWARE
 Entrando in Chain da Song si apre la Chain della cella scelta; SELECT sceglie la Chain della nuova traccia e il numero Cxx è visibile in alto.
@@ -11,12 +11,13 @@ La destinazione scelta in Global è distinta dal progetto aperto. SAVE fisico sa
 Uno slot senza un progetto valido si apre vuoto, senza scritture. Clear salva invece un progetto vuoto persistente.
 
 TOOLS
-Carica brani: scegli file e destinazione, premi Carica su FM-1. Salvataggio, verifica e apertura sono automatici. Poi PLAY.
-Backup: Scarica backup, senza passaggi preliminari. Il backup non è obbligatorio per caricare un brano.
-Converti / Set: importa, estrai, converti oppure costruisci una banca con zero–otto brani; le altre posizioni restano vuote.
-Le operazioni sul dispositivo aprono il collegamento quando serve. Clear e sostituzione completa della banca chiedono una conferma.
-Non c’è Init, Prepara o un backup obbligatorio. I log sono chiusi nei Dettagli tecnici.
-Lo slot aperto sempre visibile è una funzione del firmware, non dei tools.
+Quattro schede: Firmware; Backup ed estrazione; Conversione; Ripristino / Caricamento.
+Backup: scarica gli otto slot e la copia in lavorazione oppure esporta solo il progetto aperto. Puoi aprire un backup esistente ed estrarne i brani singoli o tutti in ZIP.
+Conversione: scegli file e formato, poi Converti e scarica. È indipendente dalle altre schede.
+Ripristino: apri backup/set oppure scegli un file nelle singole caselle 1–8. Premi Carica gli slot selezionati. Vengono scritti e verificati SOLTANTO gli slot compilati; le caselle Non modificare lasciano invariati i corrispondenti slot FM-1. Alla fine si apre il primo brano caricato: poi PLAY.
+Esempio: un file nella casella2 scrive SOLO slot2; file nelle caselle2 e7 scrivono SOLO2 e7. Una selezione vuota non scrive nulla. Nessuna cancellazione implicita.
+Salva set su file conserva la scelta anche con meno di otto brani. Azzera la selezione agisce solo sulle caselle locali. La copia RAM di un backup è disponibile nei menu come brano separato.
+Load, Save e Clear si usano sul firmware: il blocco Gestisci uno slot è stato rimosso dai tools. Non servono Init, Prepara o backup obbligatorio. I log sono chiusi nei Dettagli tecnici. Lo slot aperto sempre visibile riguarda solo il firmware.
 
 INSTALLAZIONE / iPHONE
 Apri https://gfcalvi.github.io/meighty-fm1/ in Chrome Mac/PC o MIDIWeb Browser su iPhone/iPad USB-C.
@@ -26,6 +27,6 @@ La gestione diretta degli slot richiede RC7/HW16. Il ritorno alla RC3 rimane in 
 Nel pacchetto iOS non servono launcher .command. Sul Mac il launcher richiede Python3; il sito HTTPS evita il launcher.
 
 VERIFICHE E LIMITI
-259 controlli client reale/dispatcher C su NOR simulata, inclusi tutti gli slot, riavvio, dati estranei e scritture interrotte. 95 controlli dei nuovi handler dei tools collegati allo stesso dispatcher.
+259 controlli client reale/dispatcher C su NOR simulata, inclusi tutti gli slot, riavvio, dati estranei e scritture interrotte. 116 controlli dei nuovi handler dei tools collegati allo stesso dispatcher.
 Regressioni native editor/DSP, loader e OTA superate. I nuovi tools non sono ancora collaudati fisicamente su iPhone/Mac; il test hardware degli slot 2–8 resta da confermare.
 Il manuale italiano completo aggiornato è incluso come Markdown. Nessuna nuova prova audio fisica è dichiarata.

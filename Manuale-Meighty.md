@@ -395,7 +395,7 @@ NEON BLUE mantiene fondo blu, titoli e FX magenta, selezione verde acido, valori
 I colori sono nel progetto: SAVE li registra nello slot e Save state li conserva nello stato dell’app. Caricare un altro progetto richiama la sua palette. I LED del meter mantengono verde, giallo e rosso per rendere leggibile il livello indipendentemente dal colore di selezione.
 
 
-# 8 Progetti e otto slot — RC6 / Tools 2.0
+# 8 Progetti e otto slot — RC7 / Tools 2.1
 
 Gli otto slot sono sempre disponibili. Non esiste un’operazione Init da eseguire prima dell’uso. Il display del firmware indica **S1–S8**, cioè lo slot effettivamente aperto. **S--** indica un progetto temporaneo non associato a uno slot. Cambiare la destinazione in Global non cambia questa indicazione.
 
@@ -413,21 +413,27 @@ Clear su uno slot diverso da quello aperto non cambia il progetto in lavorazione
 
 Scegli 2 in Global e usa Load slot. Se è vuoto, puoi iniziare subito a lavorare e poi usare Save. Per azzerare un vecchio brano usa Clear slot con conferma. Non servono Init, New project o una sequenza di preparazione.
 
-## Tools offline 2.0
+## Tools offline 2.1
 
-Carica brani: scegli il file e la destinazione, poi **Carica su FM-1**. Il collegamento MIDI viene aperto quando serve. Il brano viene salvato, riletto e aperto; sul firmware compare S2 se hai scelto lo slot 2. Non serve un Load successivo e non è obbligatorio creare un backup prima di ogni trasferimento.
+Le quattro schede sono **Firmware**, **Backup ed estrazione**, **Conversione**, **Ripristino / Caricamento**.
 
-La pagina offre anche Load slot, Save slot e Clear slot diretti. Solo Clear richiede conferma. Una banca che azzera dei posti o un set completo richiede una sola conferma di sostituzione. Non ci sono preparazioni, checkbox o inizializzazioni preliminari.
+Firmware installa il pacchetto RC7 con una conferma. Per i nuovi collegamenti Song/Chain/Phrase serve RC7/HW16; le operazioni sui progetti funzionano da RC6/HW15. Il caricamento di un brano non reinstalla il firmware.
 
-Backup: **Scarica backup** conserva gli otto slot e il progetto in lavorazione. **Scarica progetto aperto** esporta soltanto la copia attiva. Il backup è facoltativo e indipendente dal caricamento. Il pulsante Salva il file resta disponibile se il browser non avvia il download automaticamente.
+Backup ed estrazione: Scarica backup conserva gli otto slot e il progetto in lavorazione. Scarica progetto aperto esporta solo la RAM. Puoi anche aprire un backup esistente e usare Estrai su uno degli otto slot oppure Estrai tutti i brani; lo ZIP contiene un indice anche delle posizioni vuote e la copia in lavorazione, se presente. Nessun backup è obbligatorio prima di un altro comando.
 
-Converti / Set: apri un file e usa Converti e scarica, Estrai o Salva set. Le righe del compositore possono restare vuote: sono ammessi da zero a otto brani. Carica set su FM-1 applica il set agli otto slot, con un’unica conferma. Per i formati che non contengono la copia RAM, la conversione conserva quest’ultima separatamente nello ZIP.
+Conversione: scegli un file nella sua casella, il formato di uscita e Converti e scarica. È indipendente dai file aperti nelle altre schede. Per i formati che non contengono la copia RAM, quest’ultima è conservata separatamente nello ZIP.
 
-Il pannello mostra solo lo stato corrente e l’esito. Il rapporto delle operazioni si trova nei Dettagli tecnici, chiusi per default. Su iPhone apri il sito HTTPS in MIDIWeb e aggiorna Make Available Offline: la pagina incorpora firmware e strumenti.
+Ripristino / Caricamento usa una sola griglia di otto destinazioni. Apri un backup o un set per riempirla nelle posizioni originali; per un singolo brano puoi scegliere il file direttamente nella casella desiderata. Nei menu puoi anche scegliere i brani estratti da altri backup, inclusa la copia in lavorazione. Premi **Carica gli slot selezionati**: vengono scritti e verificati solo quelli compilati, poi si apre il primo trasferito. Non serve un Load successivo. Sul firmware compare il suo S1–S8.
+
+**Non modificare significa bypass, non cancellazione.** Se scegli un brano soltanto nella casella 2, viene sostituito solo lo slot 2 dell’FM-1; gli altri sette restano invariati. Con brani nelle caselle 2 e 7 vengono scritti solo 2 e 7. Un backup con tre brani aggiorna solo quelle tre posizioni. Una selezione completamente vuota non scrive nulla e segnala di scegliere almeno un brano. Azzera la selezione agisce soltanto sulla griglia locale, mai sullo strumento. Per cancellare uno slot usa Clear slot sul firmware.
+
+Salva set su file conserva le destinazioni scelte, anche con meno di otto brani. Quando ricarichi quel file, le posizioni senza brano continuano a essere ignorate. Un progetto vuoto scelto esplicitamente come file è invece un contenuto e può sostituire lo slot scelto. Non ci sono Load/Save/Clear nei tools, modalità sostituisci tutti, inizializzazioni o sequenze di preparazione.
+
+La pagina mostra un solo esito corrente; la cronologia è chiusa nei Dettagli tecnici. Dopo la generazione tenta il download e mantiene Salva il file / Condividi come alternativa su iOS. In MIDIWeb Browser apri la pagina HTTPS aggiornata e rinnova Make Available Offline. La pagina contiene codice e firmware senza iframe né servizi remoti necessari al funzionamento offline.
 
 ## Formati e ambienti
 
-.meighty conserva una banca e l’eventuale copia in lavorazione. .fm1tracker.json contiene un singolo progetto. .rfm1state è uno stato RemoteFM1, .fm1save uno stato Emulator, .fwsc il firmware. Non usare un firmware come file brano. I vecchi moduli RemoteFM1 e il Workbench conservano i propri controlli: questa revisione riguarda il firmware fisico RC6 e Tools 2.0.
+.meighty conserva una banca e l’eventuale copia in lavorazione. .fm1tracker.json contiene un singolo progetto. .rfm1state è uno stato RemoteFM1, .fm1save uno stato Emulator, .fwsc il firmware. Non usare un firmware come file brano. I vecchi moduli RemoteFM1 e il Workbench conservano i propri controlli: questa revisione riguarda il firmware fisico RC7 e Tools 2.1.
 
 Gli esempi Oltre le dune e Orbite profonde hanno rispettivamente 98 e 82 BPM. Sono verificati dal client JavaScript verso dispatcher C e NOR simulata su tutti otto gli slot, anche con dati preesistenti. Questo non sostituisce il collaudo USB fisico.
 
