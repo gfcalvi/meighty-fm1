@@ -1,49 +1,28 @@
-<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meighty RC5 — brani</title><style>body{max-width:850px;margin:auto;padding:24px;background:#071e20;color:#f1f9f7;font:17px/1.6 system-ui}pre{white-space:pre-wrap;font:inherit}a{color:#70dfd0}</style><a href="Meighty.html">Installer RC5</a> · <a href="Ritorno-RC3.html">Ritorno RC3</a><pre>MEIGHTY 1.01 RC5 / HW14 — TOOLS 1.6
+<!doctype html><meta charset="utf-8"><title>Meighty RC6</title><style>body{max-width:850px;margin:35px auto;padding:20px;font:17px/1.6 system-ui;background:#071e20;color:#edf9f6}pre{white-space:pre-wrap;font:inherit}a{color:#70dfd0}</style><a href="Meighty.html">Apri Meighty</a><pre>MEIGHTY 1.01 RC6 / HW15 — TOOLS 2.0
 
-Apri https://gfcalvi.github.io/meighty-fm1/ . Installa RC5 per avere l’apertura automatica dei brani dopo il trasferimento. Su iPhone sostituisci Make Available Offline.
-La RC5 conserva l’editing ARP/SHIFT della RC4. Il ritorno RC3 resta disponibile in Ritorno-RC3.html; salvalo separatamente per usarlo offline.
+FIRMWARE
+Slot sempre pronti: Load apre, Save salva, Clear svuota con una conferma.
+S1–S8 sul display indica lo slot effettivamente aperto; S-- indica un progetto non associato.
+La destinazione scelta in Global è distinta dal progetto aperto. SAVE fisico salva lo slot aperto; Save slot in Global salva nella destinazione scelta.
+Uno slot senza un progetto valido si apre vuoto, senza scritture. Clear salva invece un progetto vuoto persistente.
 
-# Caricare e aprire un brano — RC5/HW14 e Tools 1.6
-Un trasferimento nelle versioni precedenti modificava la copia salvata nello slot,
-ma lasciava aperto il vecchio progetto in RAM. RC5 aggiunge un comando esplicito
-di apertura; il tool lo usa dopo avere verificato la scrittura del brano singolo.
+TOOLS
+Carica brani: scegli file e destinazione, premi Carica su FM-1. Salvataggio, verifica e apertura sono automatici. Poi PLAY.
+Backup: Scarica backup, senza passaggi preliminari. Il backup non è obbligatorio per caricare un brano.
+Converti / Set: importa, estrai, converti oppure costruisci una banca con zero–otto brani; le altre posizioni restano vuote.
+Le operazioni sul dispositivo aprono il collegamento quando serve. Clear e sostituzione completa della banca chiedono una conferma.
+Non c’è Init, Prepara o un backup obbligatorio. I log sono chiusi nei Dettagli tecnici.
+Lo slot aperto sempre visibile è una funzione del firmware, non dei tools.
 
-1. Installa RC5 dall’installer principale; in Global verifica 1.01 RC5.
-2. Su iPhone aggiorna Make Available Offline. Il titolo deve indicare Tools 1.6.
-3. Apri Backup e ripristino, scegli il file e la destinazione.
-4. Lascia attivo Apri il brano sull’FM-1 dopo il trasferimento, in modalità Aggiorna.
-5. Collega FM-1 e prepara il ripristino: il backup conserva lo slot interessato
-   e anche il progetto attualmente aperto in RAM. Scaricalo e conservalo.
-6. Spunta la conferma e premi Ripristina e verifica.
-7. Attendi APERTO E VERIFICATO: slot, BPM e numero di righe sono mostrati.
-   Premi PLAY: non serve più Load sul dispositivo.
+INSTALLAZIONE / iPHONE
+Apri https://gfcalvi.github.io/meighty-fm1/ in Chrome Mac/PC o MIDIWeb Browser su iPhone/iPad USB-C.
+Pagina Firmware → Installa RC6 → conferma. Non scollegare durante la scrittura.
+Su MIDIWeb aggiorna Make Available Offline dopo aver caricato la nuova pagina HTTPS: sostituisce la vecchia copia; il Mac non serve in mobilità.
+La gestione diretta degli slot richiede RC6/HW15. Il ritorno alla RC3 rimane in Ritorno-RC3.html.
+Nel pacchetto iOS non servono launcher .command. Sul Mac il launcher richiede Python3; il sito HTTPS evita il launcher.
 
-Se lasci disattivata l’apertura, oppure ripristini una banca di più slot, il tool
-scrive gli slot senza cambiare la RAM e lo dichiara chiaramente. In quel caso
-usa Global → Project slot → Load per scegliere quale brano aprire.
-Su RC3/RC4 il tool chiede RC5 prima di scrivere se l’apertura è selezionata.
-Puoi togliere la spunta per usare il vecchio trasferimento solo su memoria.
-
-Il rapporto sotto i pulsanti mostra file, versione collegata, fasi, errori e SHA256.
-Distingue SALVATO E VERIFICATO da APERTO E VERIFICATO. Se qualcosa si ferma,
-copia l’ultimo messaggio del rapporto. Si può riprovare lo stesso file: il selettore
-viene azzerato dopo ogni scelta, evitando che una seconda selezione sia ignorata.
-
-Gli slot estranei/corrotti non vengono cancellati automaticamente. Se la destinazione
-lo richiede, inizializza solo quella dal pannello. Un posto già vuoto non richiede Init.
-Il progetto in RAM è sostituito solo con l’apertura richiesta dopo averne conservato
-la copia nel backup preventivo.
-
-Riferimenti dei due esempi originali:
-- Oltre le dune: 98 BPM, 29 righe Song.
-- Orbite profonde: 82 BPM, 29 righe Song.
-I dati dei .meighty convertiti coincidono con gli stati originali.
-Il test usa il client JavaScript vero, il dispatcher C del firmware e NOR simulata:
-entrambi i brani su tutti otto gli slot, prima e seconda generazione, CRC/SHA,
-rilettura e verifica della RAM dopo apertura. Non equivale a una prova USB fisica.
-Oltre le dune è stato confermato dall’utente sul dispositivo con il vecchio Load manuale.
-Il problema fisico di Orbite profonde non è ancora riprodotto sul dispositivo.
-
-Ritorno a RC3: Ritorno-RC3.html. Per il ritorno senza rete su iPhone salva anche quella
-pagina separatamente con Make Available Offline.
-</pre></html>
+VERIFICHE E LIMITI
+259 controlli client reale/dispatcher C su NOR simulata, inclusi tutti gli slot, riavvio, dati estranei e scritture interrotte. 95 controlli dei nuovi handler dei tools collegati allo stesso dispatcher.
+Regressioni native editor/DSP, loader e OTA superate. I nuovi tools non sono ancora collaudati fisicamente su iPhone/Mac; il test hardware degli slot 2–8 resta da confermare.
+Il manuale italiano completo aggiornato è incluso come Markdown. Nessuna nuova prova audio fisica è dichiarata.
+</pre>

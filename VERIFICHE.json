@@ -1,28 +1,12 @@
 {
-  "date": "2026-11-11",
-  "release": "Meighty 1.01 RC5 / HW14",
-  "suite": "1.6",
-  "firmware_sha256": "30a89469309fc99ac7da5640dc3eb2202dd760fbdb70429739c3f4a917da07b3",
-  "status": "CANDIDATE_SOFTWARE_TESTED_NOT_INSTALLED_BY_AGENT",
-  "build": {
-    "target": "FM1 hardware candidate PI32v2",
-    "image_bytes": 551020,
-    "package_bytes": 611083,
-    "sha256": "30a89469309fc99ac7da5640dc3eb2202dd760fbdb70429739c3f4a917da07b3",
-    "storage": "8 transactional slots 0xaf000..0xdefff; OTA 0xe0000..0xe4fff excluded",
-    "hardware_validated": false
-  },
-  "tests": {
-    "ui_logic_checks": 120,
-    "genuine_js_to_native_protocol": "PASS both real songs on all 8 slots, alternate generations, CRC/SHA readback and RAM activation",
-    "native_panel_regressions": "PASS ASan/UBSan",
-    "ota_package": "PASS",
-    "loader_B36014": "PASS RC4 to RC5, protected areas"
-  },
-  "physical_observation": "User confirms Oltre le dune works on hardware after manual Load slot 1; previous storage-only semantics caused confusion. Orbite profonde physical failure not yet reproduced.",
-  "limits": [
-    "New cmd0x68 activation not yet tested on physical USB.",
-    "No device write performed by the agent.",
-    "Phrase remains 16 steps; 32/64-step question is a separate design topic."
-  ]
+  "firmware": "1.01 RC6",
+  "hardware": 15,
+  "suite": "2.0",
+  "sha256": "7b37afb1bada74255c64483f98b97b88157ff9632c2db5af29e8f2e6de0cc7f0",
+  "native_client_checks": 259,
+  "ui_handler_checks": 95,
+  "regressions": "editor/DSP, loader and OTA pass",
+  "hardware_browser_validation": "pending; CoreMIDI client unavailable (-10833); no physical writes during these tests",
+  "loaded_slot_indicator": "firmware only",
+  "code_headroom_bytes": 596
 }

@@ -1,7 +1,29 @@
-# Meighty 1.01 RC5 / HW14 — Tools 1.6
+# Meighty 1.01 RC6 / Tools 2.0
 
-[Installer](https://gfcalvi.github.io/meighty-fm1/) · [Ritorno RC3](https://gfcalvi.github.io/meighty-fm1/Ritorno-RC3.html)
+MEIGHTY 1.01 RC6 / HW15 — TOOLS 2.0
 
-Per un brano singolo: backup di slot e RAM, trasferimento, rilettura e apertura automatica. Richiede RC5. Rapporto con SHA/BPM/righe e distinzione fra salvato e aperto. Editing ARP/SHIFT conservato.
+FIRMWARE
+Slot sempre pronti: Load apre, Save salva, Clear svuota con una conferma.
+S1–S8 sul display indica lo slot effettivamente aperto; S-- indica un progetto non associato.
+La destinazione scelta in Global è distinta dal progetto aperto. SAVE fisico salva lo slot aperto; Save slot in Global salva nella destinazione scelta.
+Uno slot senza un progetto valido si apre vuoto, senza scritture. Clear salva invece un progetto vuoto persistente.
 
-120 controlli UI/logica e test del client JavaScript contro dispatcher C e NOR simulata sui due brani reali, tutti otto gli slot. Collaudo fisico dell’apertura automatica ancora da eseguire. Aggiornare Make Available Offline.
+TOOLS
+Carica brani: scegli file e destinazione, premi Carica su FM-1. Salvataggio, verifica e apertura sono automatici. Poi PLAY.
+Backup: Scarica backup, senza passaggi preliminari. Il backup non è obbligatorio per caricare un brano.
+Converti / Set: importa, estrai, converti oppure costruisci una banca con zero–otto brani; le altre posizioni restano vuote.
+Le operazioni sul dispositivo aprono il collegamento quando serve. Clear e sostituzione completa della banca chiedono una conferma.
+Non c’è Init, Prepara o un backup obbligatorio. I log sono chiusi nei Dettagli tecnici.
+Lo slot aperto sempre visibile è una funzione del firmware, non dei tools.
+
+INSTALLAZIONE / iPHONE
+Apri https://gfcalvi.github.io/meighty-fm1/ in Chrome Mac/PC o MIDIWeb Browser su iPhone/iPad USB-C.
+Pagina Firmware → Installa RC6 → conferma. Non scollegare durante la scrittura.
+Su MIDIWeb aggiorna Make Available Offline dopo aver caricato la nuova pagina HTTPS: sostituisce la vecchia copia; il Mac non serve in mobilità.
+La gestione diretta degli slot richiede RC6/HW15. Il ritorno alla RC3 rimane in Ritorno-RC3.html.
+Nel pacchetto iOS non servono launcher .command. Sul Mac il launcher richiede Python3; il sito HTTPS evita il launcher.
+
+VERIFICHE E LIMITI
+259 controlli client reale/dispatcher C su NOR simulata, inclusi tutti gli slot, riavvio, dati estranei e scritture interrotte. 95 controlli dei nuovi handler dei tools collegati allo stesso dispatcher.
+Regressioni native editor/DSP, loader e OTA superate. I nuovi tools non sono ancora collaudati fisicamente su iPhone/Mac; il test hardware degli slot 2–8 resta da confermare.
+Il manuale italiano completo aggiornato è incluso come Markdown. Nessuna nuova prova audio fisica è dichiarata.
