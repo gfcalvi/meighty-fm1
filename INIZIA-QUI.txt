@@ -1,89 +1,10 @@
-MEIGHTY 1.01 RC3 / SUITE OFFLINE 1.4 — TIFFANY
+MEIGHTY 1.01 RC4 / HW13 — TOOLS 1.5
 
-IPHONE/IPAD SENZA MAC
-Apri https://gfcalvi.github.io/meighty-fm1/ in MIDIWeb Browser con rete attiva.
-Controlla Meighty 1.01 RC3 / Suite offline 1.4 e l’hash in Installazione.
-Nel menu dell’app scegli Make Available Offline e attendi il completamento.
-La singola pagina incorpora tutti e quattro gli strumenti e il firmware.
-Richiama poi la copia offline, anche senza rete e senza Mac. Quando aggiorni,
-riapri l’HTTPS e sostituisci la vecchia copia offline. Non usare File → Apri con.
-Per prove in mobilità: modalità aereo, Wi-Fi spento, chiudi e riapri MIDIWeb.
-Connetti FM-1 via USB dati e autorizza MIDI/SysEx. iPhone richiede ancora
-il suo collaudo: le prove USB fisiche finora sono state eseguite sul Mac.
+Apri https://gfcalvi.github.io/meighty-fm1/ in Chrome sul Mac o in MIDIWeb Browser su iPhone/iPad.
+Conserva un backup, collega FM-1, premi Connetti, spunta le due conferme e Installa Meighty 1.01 RC4. Non scollegare durante il trasferimento. Dopo il riavvio controlla Global: 1.01 RC4.
+Su iPhone sostituisci la precedente copia Make Available Offline.
+Ritorno: https://gfcalvi.github.io/meighty-fm1/Ritorno-RC3.html — contiene RC3/HW12. Per il ritorno senza rete, salva separatamente anche questa pagina in MIDIWeb Browser.
+Il ritorno reinstalla RC3: non è un recupero ROM se la macchina non risponde.
+RC4 è candidata: i test software sono superati, i tasti fisici restano da collaudare.
+La pagina è unica e incorpora il firmware. Nessun launcher .command necessario per il sito.
 
-COSA INCLUDE RC3
-Global: stato arancione più grande su fascia scura; ordine Project slot →
-Init slot → Load slot → Save slot. Global mostra 1.01 RC3, USB Meighty.
-Correzioni di RC2: identità USB standard, Save con errore esplicito per note
-non valide, rotativo Phrase limitato a note 0–127/OFF/vuoto, Load di slot
-realmente vuoti crea un progetto nuovo. Mantiene il motore audio a due core.
-
-SLOT: RAM, SAVE, LOAD E INIT SONO AZIONI DIVERSE
-Project slot seleziona la destinazione/sorgente: non carica e non salva.
-Save slot + REC scrive la RAM nello slot selezionato. Load slot + REC
-sostituisce la RAM con quel progetto: le modifiche non salvate si perdono.
-Uno slot cancellato caricato con Load crea RAM nuova: per conservarla usa Save.
-All’accensione viene ripristinato lo slot 1 se valido: per il 2–8 usa Load.
-
-Se uno slot è corrotto o di un altro firmware, Load non lo cancella e Save
-normale non sovrascrive dati estranei. Per ricominciare lì: Project slot →
-numero desiderato → Init slot → REC, rilascio, REC entro 7 secondi.
-Controlla il numero in ERASE SLOT n? REC AGAIN prima della seconda pressione.
-Init cancella solo i 24 KiB di quel posto, anche dati di altri firmware:
-conserva prima il loro backup se ti servono. Dopo SLOT n READY: SAVE,
-modifica il progetto e usa Save slot. Gli altri sette posti non sono inizializzati.
-New project invece azzera SOLO la RAM, richiede doppio REC e poi Save.
-
-ESEMPIO SAVE/LOAD
-Slot 2 → Init (solo se vuoi cancellarlo) → BPM 137 → Save slot + REC.
-Cambia BPM in 141 senza salvare. Load slot + REC riporta 137.
-Spegni e riaccendi, seleziona slot 2 e Load: ritrovi 137.
-Questa sequenza è stata provata fisicamente su RC2 con confronto di tutti
-i 11.940 byte, prima e dopo lo spegnimento. Gli otto indirizzi sono testati
-in software; non tutti otto gli slot sono stati collaudati fisicamente.
-
-PARTIRE DA UNA RIGA SONG
-Da fermo: Song → ALGORITHM seleziona la riga → PLAY, restando in Song.
-Durante PLAY: scegli la riga e REC accoda il salto.
-La riga deve essere entro LEN, regolata con K3. OUTSIDE LEN indica che
-devi aumentare prima la lunghezza. Un progetto nuovo ha LEN 1 (solo riga 00).
-
-BACKUP E RECUPERO
-Crea backup completo legge otto slot e copia in lavorazione (RAM).
-Se tutto è valido produce .meighty. Se trova dati illeggibili o RAM invalida,
-offre un ZIP PARZIALE con i brani leggibili, la RAM e il rapporto degli errori.
-Una RAM non valida viene conservata raw senza correggerla silenziosamente:
-è materiale di recupero, non un progetto pronto per il ripristino.
-Gli slot illeggibili NON sono considerati vuoti. Nessuna cancellazione nel backup.
-Premi Scarica il file o Condividi / Salva in File per conservarlo.
-Il recupero parziale USB è stato provato fisicamente su RC2/Mac.
-
-RIPRISTINO
-Apri il backup, prepara il piano e conserva il backup preliminare della macchina.
-Poi spunta la conferma e Ripristina e verifica. Senza backup preliminare
-completo il piano non procede. Sostituisci applica tutti otto i posti, compresi
-i vuoti; Unisci solo i brani presenti. Ogni scrittura viene riletta e verificata.
-Per suonare il brano: Global → Project slot → Load. Non reinstalla il firmware.
-
-COMPOSITORE E CONVERTITORE
-Carica brano… su ciascuna riga apre il selettore file. Il menu Vuoto sceglie
-invece un brano già importato. Estrai ogni slot o tutti in ZIP con indice;
-componi set da zero a otto brani, anche non consecutivi. I file sorgenti restano
-invariati. Formati: .meighty, progetti/banche precedenti, .rfm1state anche LZFSE,
-.fm1save e dump M-Flasher. Non converte brani Bloomy in progetti Meighty.
-
-INSTALLAZIONE E VERSIONI
-La suite contiene la build RC3 candidata. L’hash deve coincidere con VERIFICHE.
-RC2 è stata installata da Bloomy e poi sostituita da Bloomy via browser sul Mac,
-senza M-Flasher. RC3 aggiorna anche i nomi USB del loader: il suo collaudo
-fisico e i limiti aggiornati sono registrati in VERIFICHE.json.
-Firmware Hub Tessera/Skiff e iPhone non sono dichiarati collaudati.
-In caso di recupero, M-Flasher resta disponibile: conserva bootloader e impostazioni.
-
-MAC/PC
-Stesso HTTPS in Chrome/Edge; oppure Avvia-Meighty.command/.cmd con Python 3.
-I launcher sono solo per computer e non servono su iOS.
-Il PDF musicale è quello esistente; questa guida integra i nuovi comandi.
-Il modulo RemoteFM1 Follow nel pacchetto Mac è storico: non contiene i nuovi
-fix hardware degli slot. I suoi identificatori restano per leggere vecchi stati.
-Nessun backup personale è incluso nei pacchetti pubblici.

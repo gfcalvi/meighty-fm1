@@ -1,90 +1,92 @@
-<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meighty RC3 · Guida</title><style>body{max-width:850px;margin:30px auto;padding:20px;background:#071e20;color:#f1f9f7;font:17px/1.6 system-ui}h1,a{color:#70dfd0}pre{white-space:pre-wrap;font:inherit}</style><h1>Meighty 1.01 RC3 · Suite offline 1.4</h1><a href="Meighty.html">Apri la suite</a><pre>MEIGHTY 1.01 RC3 / SUITE OFFLINE 1.4 — TIFFANY
+<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meighty RC4 — guida</title><style>body{background:#071e20;color:#f1f9f7;font:17px/1.6 system-ui;max-width:850px;margin:auto;padding:24px}pre{white-space:pre-wrap;font:inherit}a{color:#70dfd0}</style><a href="Meighty.html">Installer RC4</a> · <a href="Ritorno-RC3.html">Ritorno RC3</a><pre>MEIGHTY 1.01 RC4 / HW13 — TOOLS 1.5
 
-IPHONE/IPAD SENZA MAC
-Apri https://gfcalvi.github.io/meighty-fm1/ in MIDIWeb Browser con rete attiva.
-Controlla Meighty 1.01 RC3 / Suite offline 1.4 e l’hash in Installazione.
-Nel menu dell’app scegli Make Available Offline e attendi il completamento.
-La singola pagina incorpora tutti e quattro gli strumenti e il firmware.
-Richiama poi la copia offline, anche senza rete e senza Mac. Quando aggiorni,
-riapri l’HTTPS e sostituisci la vecchia copia offline. Non usare File → Apri con.
-Per prove in mobilità: modalità aereo, Wi-Fi spento, chiudi e riapri MIDIWeb.
-Connetti FM-1 via USB dati e autorizza MIDI/SysEx. iPhone richiede ancora
-il suo collaudo: le prove USB fisiche finora sono state eseguite sul Mac.
+Apri https://gfcalvi.github.io/meighty-fm1/ in Chrome sul Mac o in MIDIWeb Browser su iPhone/iPad.
+Conserva un backup, collega FM-1, premi Connetti, spunta le due conferme e Installa Meighty 1.01 RC4. Non scollegare durante il trasferimento. Dopo il riavvio controlla Global: 1.01 RC4.
+Su iPhone sostituisci la precedente copia Make Available Offline.
+Ritorno: https://gfcalvi.github.io/meighty-fm1/Ritorno-RC3.html — contiene RC3/HW12. Per il ritorno senza rete, salva separatamente anche questa pagina in MIDIWeb Browser.
+Il ritorno reinstalla RC3: non è un recupero ROM se la macchina non risponde.
+RC4 è candidata: i test software sono superati, i tasti fisici restano da collaudare.
+La pagina è unica e incorpora il firmware. Nessun launcher .command necessario per il sito.
 
-COSA INCLUDE RC3
-Global: stato arancione più grande su fascia scura; ordine Project slot →
-Init slot → Load slot → Save slot. Global mostra 1.01 RC3, USB Meighty.
-Correzioni di RC2: identità USB standard, Save con errore esplicito per note
-non valide, rotativo Phrase limitato a note 0–127/OFF/vuoto, Load di slot
-realmente vuoti crea un progetto nuovo. Mantiene il motore audio a due core.
+# Editing rapido — Meighty 1.01 RC4 / HW13 candidata
 
-SLOT: RAM, SAVE, LOAD E INIT SONO AZIONI DIVERSE
-Project slot seleziona la destinazione/sorgente: non carica e non salva.
-Save slot + REC scrive la RAM nello slot selezionato. Load slot + REC
-sostituisce la RAM con quel progetto: le modifiche non salvate si perdono.
-Uno slot cancellato caricato con Load crea RAM nuova: per conservarla usa Save.
-All’accensione viene ripristinato lo slot 1 se valido: per il 2–8 usa Load.
+Questi comandi richiedono la build candidata RC4/HW13, ora proposta dall’installer pubblico. La precedente RC3/HW12 resta disponibile per il ritorno. Non è stato eseguito un flash sul dispositivo durante questa pubblicazione; il collaudo dei tasti fisici è ancora da fare.
 
-Se uno slot è corrotto o di un altro firmware, Load non lo cancella e Save
-normale non sovrascrive dati estranei. Per ricominciare lì: Project slot →
-numero desiderato → Init slot → REC, rilascio, REC entro 7 secondi.
-Controlla il numero in ERASE SLOT n? REC AGAIN prima della seconda pressione.
-Init cancella solo i 24 KiB di quel posto, anche dati di altri firmware:
-conserva prima il loro backup se ti servono. Dopo SLOT n READY: SAVE,
-modifica il progetto e usa Save slot. Gli altri sette posti non sono inizializzati.
-New project invece azzera SOLO la RAM, richiede doppio REC e poi Save.
+## Comandi del pannello
 
-ESEMPIO SAVE/LOAD
-Slot 2 → Init (solo se vuoi cancellarlo) → BPM 137 → Save slot + REC.
-Cambia BPM in 141 senza salvare. Load slot + REC riporta 137.
-Spegni e riaccendi, seleziona slot 2 e Load: ritrovi 137.
-Questa sequenza è stata provata fisicamente su RC2 con confronto di tutti
-i 11.940 byte, prima e dopo lo spegnimento. Gli otto indirizzi sono testati
-in software; non tutti otto gli slot sono stati collaudati fisicamente.
+Nelle pagine **Song, Phrase, Chain e Table**, tenere premuto **ARP** equivale a
+SHIFT. In Instrument, ARP continua ad aprire il catalogo preset.
 
-PARTIRE DA UNA RIGA SONG
-Da fermo: Song → ALGORITHM seleziona la riga → PLAY, restando in Song.
-Durante PLAY: scegli la riga e REC accoda il salto.
-La riga deve essere entro LEN, regolata con K3. OUTSIDE LEN indica che
-devi aumentare prima la lunghezza. Un progetto nuovo ha LEN 1 (solo riga 00).
+| Combinazione | Azione |
+|---|---|
+| ARP + ALGORITHM | Estende la selezione verticalmente dalla cella iniziale. |
+| ARP + K1 | Estende la selezione fra colonne; in Song fra tracce. |
+| ARP + K2 verso destra | Include tutte le colonne delle righe selezionate, anche una sola riga. Non sposta il cursore verticalmente. |
+| ARP + K2 verso sinistra | Torna alla selezione rettangolare di celle. |
+| ARP + OCT− | Cancella la cella o l&#x27;area selezionata. |
+| ARP + OCT+ | Copia la cella o l&#x27;area selezionata. |
+| ARP + REC | Incolla. Non inserisce una nota REC e non accoda un salto Song. |
+| ARP + HOME | Annulla l&#x27;ultima cancellazione o incolla, nello stesso oggetto. |
+| ARP premuto e rilasciato senza altre azioni | Toglie la selezione. La copia negli appunti resta disponibile. |
 
-BACKUP E RECUPERO
-Crea backup completo legge otto slot e copia in lavorazione (RAM).
-Se tutto è valido produce .meighty. Se trova dati illeggibili o RAM invalida,
-offre un ZIP PARZIALE con i brani leggibili, la RAM e il rapporto degli errori.
-Una RAM non valida viene conservata raw senza correggerla silenziosamente:
-è materiale di recupero, non un progetto pronto per il ripristino.
-Gli slot illeggibili NON sono considerati vuoti. Nessuna cancellazione nel backup.
-Premi Scarica il file o Condividi / Salva in File per conservarlo.
-Il recupero parziale USB è stato provato fisicamente su RC2/Mac.
+La selezione resta evidenziata quando rilasci ARP. La testata indica l&#x27;intervallo
+di righe; il LED ARP indica SHIFT o una selezione attiva. Le azioni confermano
+COPIED, CLEARED, PASTED o UNDONE sul display.
 
-RIPRISTINO
-Apri il backup, prepara il piano e conserva il backup preliminare della macchina.
-Poi spunta la conferma e Ripristina e verifica. Senza backup preliminare
-completo il piano non procede. Sostituisci applica tutti otto i posti, compresi
-i vuoti; Unisci solo i brani presenti. Ogni scrittura viene riletta e verificata.
-Per suonare il brano: Global → Project slot → Load. Non reinstalla il firmware.
+Per scegliere la destinazione, sposta il cursore **senza ARP**: la selezione si
+chiude, gli appunti restano. Se invece incolli mentre la selezione è ancora
+attiva, il blocco parte dal suo angolo superiore sinistro. Copia → cancella →
+incolla senza muoversi ripristina quindi il blocco nello stesso punto.
 
-COMPOSITORE E CONVERTITORE
-Carica brano… su ciascuna riga apre il selettore file. Il menu Vuoto sceglie
-invece un brano già importato. Estrai ogni slot o tutti in ZIP con indice;
-componi set da zero a otto brani, anche non consecutivi. I file sorgenti restano
-invariati. Formati: .meighty, progetti/banche precedenti, .rfm1state anche LZFSE,
-.fm1save e dump M-Flasher. Non converte brani Bloomy in progetti Meighty.
+## Esempi
 
-INSTALLAZIONE E VERSIONI
-La suite contiene la build RC3 candidata. L’hash deve coincidere con VERIFICHE.
-RC2 è stata installata da Bloomy e poi sostituita da Bloomy via browser sul Mac,
-senza M-Flasher. RC3 aggiorna anche i nomi USB del loader: il suo collaudo
-fisico e i limiti aggiornati sono registrati in VERIFICHE.json.
-Firmware Hub Tessera/Skiff e iPhone non sono dichiarati collaudati.
-In caso di recupero, M-Flasher resta disponibile: conserva bootloader e impostazioni.
+**Togliere un delay da una riga:** in Phrase seleziona il comando FX interessato,
+poi ARP + OCT−. Comando e valore vengono azzerati insieme; nota e strumento
+restano intatti. Se selezioni soltanto VAL, viene azzerato soltanto il valore.
 
-MAC/PC
-Stesso HTTPS in Chrome/Edge; oppure Avvia-Meighty.command/.cmd con Python 3.
-I launcher sono solo per computer e non servono su iOS.
-Il PDF musicale è quello esistente; questa guida integra i nuovi comandi.
-Il modulo RemoteFM1 Follow nel pacchetto Mac è storico: non contiene i nuovi
-fix hardware degli slot. I suoi identificatori restano per leggere vecchi stati.
-Nessun backup personale è incluso nei pacchetti pubblici.
+**Duplicare quattro righe complete:** parti dalla prima riga, tieni ARP e dai
+uno scatto positivo a K2. Con ALGORITHM avanza di tre righe, sempre tenendo ARP.
+Rilascia ARP, premi ARP + OCT+ e poi vai alla destinazione senza ARP.
+ARP + REC incolla le quattro righe con nota, strumento e tutti gli FX.
+
+**Creare una variazione in un&#x27;altra Phrase:** copia il blocco, cambia ID Phrase
+con K3 senza ARP e seleziona la riga di arrivo. ARP + REC incolla. I riferimenti
+agli Instrument sono conservati: non vengono duplicati i suoni.
+
+**Copiare solo una sequenza di note:** seleziona NOTE nella prima riga, tieni
+ARP e usa solo ALGORITHM per estendere verticalmente. Copia, scegli NOTE alla
+destinazione e incolla. Gli Instrument e gli FX di destinazione restano intatti.
+
+**Copiare una Phrase intera:** parti dalla riga 00, ARP + K2 positivo per tutte
+le colonne, ARP + ALGORITHM fino a 0F, quindi copia. Nel nuovo ID Phrase parti
+dalla riga 00 e incolla.
+
+## Comportamenti e limiti
+
+- La cancellazione di NOTE produce `---`, non `OFF`: non scrive un evento di rilascio.
+- La cancellazione di Instrument produce lo strumento vuoto; non cancella il preset.
+- Song cancella i riferimenti alle Chain. Chain cancella i riferimenti alle Phrase;
+  LEN resta invariato. Una copia in Chain riguarda soltanto i riferimenti, non le Phrase richiamate.
+- In Table il valore neutro di trasposizione è 0 e quello di velocity è FF.
+- Le coppie comando/valore FX vengono copiate insieme quando la selezione include il comando.
+- Si incolla fra oggetti della stessa pagina e in colonne compatibili:
+  per esempio FX1 può andare in FX2, ma una nota non può diventare un comando FX.
+- Le righe complete si incollano dalla prima colonna, indipendentemente dal campo corrente.
+- Se il blocco supera l&#x27;ultima riga o colonna, l&#x27;incolla viene rifiutato interamente:
+  niente troncamenti e niente ritorno alla prima riga.
+- Gli appunti restano fra pagine e oggetti dello stesso progetto. Load, New project
+  e inizializzazione della RAM li azzerano. Non sono salvati negli slot.
+- L&#x27;annullamento è di un solo livello, per l&#x27;ultima cancellazione/incolla.
+  Un successivo inserimento di note o una modifica manuale di valore lo invalida.
+- Tutte le modifiche sono in RAM: usa Save slot per conservarle.
+- Senza ARP, OCT−/OCT+ continuano a fare mute/solo in Song; PLAY e gli altri
+  comandi normali mantengono il loro comportamento.
+
+## Collaudo
+
+Il dispatcher del pannello e il rendering 240×240 sono stati provati con
+controlli e NOR simulati, con AddressSanitizer e UndefinedBehaviorSanitizer.
+I casi comprendono selezioni inverse, righe complete, rettangoli, coppie FX,
+incolla fra Phrase, controlli sui limiti/tipi, Undo e assenza di effetti collaterali
+su mute, solo, REC e cambi pagina. La prova sui tasti fisici è ancora da fare.
 </pre></html>
