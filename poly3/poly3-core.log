@@ -4,4 +4,4 @@ PASS legacy synth/PCM source follows logical track; exact 11-voice preview; poly
 PASS live three-note overlap, individual Note Off, independent phase/envelopes, inactive-first/oldest stealing, track selection/off, invalid track
 PASS independent Table timbre/release and note velocity; Phrase cutoff controls group, VOL preserves older notes
 PASS group OFF/KIL, no stuck extra voices after Stop
-RAM: Tracker 258376 bytes; voice 692; render workspace 4256. Hardware timing remains unverified.
+RAM: Tracker 258376 bytes; voice 692; render workspace 18752. Hardware timing remains unverified.
