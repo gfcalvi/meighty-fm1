@@ -1,19 +1,20 @@
-MEIGHTY 1.02 A10 / HW26 — POLY3 — TOOLS 2.2
+MEIGHTY 1.02 A11 / HW27 — POLY3 — TOOLS 2.2
 
 Candidata per aumentare il margine audio mantenendo tre voci su una traccia e sette tracce monofoniche. Il sito principale conserva RC7.
 
-COSA CAMBIA RISPETTO AD A9 / HW25
-Le interpolazioni di senoidi, tabella bell, wavetable, campioni PCM e tabelle di controllo Braids usano prodotti interi a 32 bit dove i limiti dei dati lo consentono. Per le frazioni a 24 bit il calcolo viene scomposto in due prodotti: il risultato conserva esattamente il troncamento verso zero della formula precedente a 64 bit, anche per valori negativi.
-Non cambia alcuna tabella, forma d’onda, risoluzione della fase, frequenza di elaborazione, inviluppo o effetto. Sono conservate le ottimizzazioni di FM4 e degli effetti già provate su HW25. Progetti e protocolli restano invariati.
+COSA CAMBIA RISPETTO AD A10 / HW26
+Filtri, risonatori ed alcuni calcoli Braids usano una moltiplicazione equivalente quando il coefficiente è positivo: si moltiplica il valore assoluto unsigned e si ripristina il segno dopo lo shift. Questo conserva il troncamento verso zero del prodotto signed a 64 bit ed evita parte delle istruzioni per estendere e correggere il segno.
+Sono modificati solo i punti dove il coefficiente è non negativo per costruzione. I coefficienti di segno variabile mantengono la formula precedente. Il codice compilato per PI32v2 è stato ispezionato: la nuova forma richiede meno istruzioni nel confronto isolato. Questo non è una misura del guadagno audio complessivo.
+Tre voci, suoni, filtri, risonanze, inviluppi, campioni, effetti, tabelle, risoluzione e frequenze di elaborazione restano invariati. Le ottimizzazioni precedenti sono conservate; nessun cambio a progetti, slot o protocolli.
 
-INSTALLAZIONE E PROVA FISICA
-1. Apri la pagina HTTPS, tab Firmware, scegli Installa 1.02 A10 e conferma la scrittura. Mantieni cavo e alimentazione collegati durante l’update.
-2. Verifica GLOBAL: 1.02 A10. Leggi carico audio deve riportare HW26. Se vedi ancora HW25 aggiorna la pagina prima di installare.
-3. Riavvia per azzerare i massimi. Carica lo stesso Poly3-Stress-10-voices.meighty già usato su HW25, con Poly 3 track = T8. Non inizializzare gli slot.
-4. Seleziona T1 con SELECT, apri Instrument e scegli I10 (esadecimale, FM4) con K3. Premi PLAY e tieni un Do centrale per 60 secondi, a volume basso. Rilascia, STOP e Leggi carico audio.
-5. Riporta tutta la lettura MAX/LATE/MISSES, PREP/CPU0/CPU1/ATTESA/MIX-FX, DIV/SHIFT/CHECK e qualità audio. CPU1 lavora in parallelo e non va sommato a CPU0.
-Riferimento HW25: MAX 2675 µs, LATE 0, MISSES 0; costi 101/2125/2478/85/326 µs. Budget 2902 µs: margine osservato 227 µs. Audio confermato buono. Obiettivo indicativo 300–400 µs; il miglioramento di HW26 va misurato, non è garantito dai test Mac.
-Per tornare a HW25 usa Ritorno-A9.html. Ritorno-A8.html, Ritorno-A6.html e RC7 restano disponibili. Su iPhone in MIDIWeb Browser aggiorna Make Available Offline e salva separatamente anche la pagina di ritorno per usarla senza rete.
+INSTALLAZIONE E CONFRONTO
+1. Apri la pagina HTTPS, tab Firmware, scegli Installa 1.02 A11 e conferma la scrittura. Mantieni cavo e alimentazione durante l’update.
+2. Verifica GLOBAL: 1.02 A11; Leggi carico audio deve riportare HW27. Se mostra una versione precedente aggiorna la pagina prima di installare.
+3. Riavvia per azzerare i massimi. Carica lo stesso Poly3-Stress-10-voices.meighty, con Poly 3 track = T8. Non inizializzare gli slot.
+4. Seleziona T1 con SELECT, apri Instrument e scegli I10 (esadecimale, FM4) con K3. PLAY con un Do centrale tenuto per 60 secondi a volume basso. Rilascia, STOP e Leggi carico audio.
+5. Riporta tutta la lettura MAX/LATE/MISSES, PREP/CPU0/CPU1/ATTESA/MIX-FX, DIV/SHIFT/CHECK e qualità audio. CPU1 è parallelo e non va sommato a CPU0.
+Riferimento HW26: MAX 2653 µs, LATE 0, MISSES 0; costi 99/2017/2472/175/318 µs. Budget 2902 µs, margine osservato 249 µs. L’obiettivo indicativo rimane 300–400 µs; HW27 deve ancora essere misurata sul chip.
+Per tornare a HW26 usa Ritorno-A10.html. Restano disponibili HW25, HW24, A6 e RC7. Su iPhone in MIDIWeb Browser aggiorna Make Available Offline e salva separatamente anche la pagina di ritorno per usarla senza rete.
 
 USO DELLA POLIFONIA
 GLOBAL → Poly 3 track → OFF oppure T1–T8 con K2. La scelta viene salvata nel progetto. La traccia scelta suona tre note vere, con filtri, inviluppi e rilasci indipendenti; le altre sette restano monofoniche. Mixer, mute/solo e mandate appartengono al gruppo. Alla quarta nota si riusa una voce libera oppure la più vecchia.
@@ -26,6 +27,6 @@ Questa suite 2.2 ha quattro tab: Firmware, Backup/estrazione, Conversione, Ripri
 I vecchi progetti da 11940 byte sono migrati; quelli attuali ne usano 11944. Le banche polifoniche usano .meighty v2/schema2. Non ridurre i progetti polifonici per i vecchi firmware; conserva un backup .meighty prima di un eventuale ritorno. I dati musicali restano locali al browser.
 
 VERIFICHE
-7370775 confronti delle interpolazioni con le formule signed originali a 64 bit: tutti i 131071 delta possibili tra estremi a 16 bit, frazioni limite a 8/16/24 bit, un milione di frazioni casuali a 24 bit, seno/bell e fine periodo, quattro banchi wavetable per sei mip, 256 posizioni e 65 fasi, tabelle Braids con pitch ai limiti. Formule ed effetti contro i riferimenti congelati A8/A9 identici.
-16 test host passati con ASan/UBSan e ThreadSanitizer. Gold A1: 1152000 frame identici; stress nativo 60 s/1920000 frame/11 voci con hash invariato. Live 2432 casi, cache 1536 blocchi, sparse 432 casi, renderer 1216000 frame e ricampionamento 258174 frame esatti. Tools: 123 controlli dei veri handler JavaScript collegati al core C, tutti gli otto slot. OTA, loader, limiti memoria e copia del codice RAM verificati.
-Nessuna misura di tempo nativa del Mac rappresenta una misura del chip. Non promuovere automaticamente la candidata a stabile prima del collaudo fisico.
+9001512 confronti dei prodotti signed32 per unsigned32 contro il prodotto signed64 originale, incluso INT32_MIN, intero intervallo dei coefficienti e nove quantità di shift. 524288 frame dei filtri confrontati col codice congelato HW26: legacy/ADSR, quattro modi, tutte le 256 risonanze, inviluppo cutoff, rilascio e stato completo della voce.
+Restano passati i 7370775 controlli delle interpolazioni, i confronti FM4 ed effetti con i riferimenti congelati e i 17 test host con ASan/UBSan e ThreadSanitizer. Audio gold A1: 1152000 frame identici; stress nativo 60 s/1920000 frame/11 voci con hash invariato. Live 2432 casi, cache 1536 blocchi, sparse 432 casi, renderer 1216000 frame e ricampionamento 258174 frame esatti. Tools: 123 controlli dei veri handler JavaScript collegati al core C, tutti gli otto slot. OTA, loader, limiti memoria, copia codice RAM e integrità dei pacchetti verificati.
+I test software non misurano il tempo reale sul dispositivo. Nessuna promozione automatica a stabile prima del collaudo.

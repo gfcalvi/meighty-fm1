@@ -1,0 +1,29 @@
+{
+  "version": "1.02 A10",
+  "build": 26,
+  "firmware_sha256": "3a2049dd05534f28326e17db37cf78b52c429443fe613f541caf53ec160ef3c4",
+  "source": "user report from physical FM-1",
+  "max_us": 2653,
+  "late": 0,
+  "misses": 0,
+  "budget_us": 2902,
+  "margin_us": 249,
+  "margin_percent": 8.58,
+  "cost_us": {
+    "prep": 99,
+    "cpu0": 2017,
+    "cpu1": 2472,
+    "wait": 175,
+    "mix_fx": 318
+  },
+  "cpu_benchmark": {
+    "iterations": 8192,
+    "division_us": 682,
+    "shift_us": 364,
+    "checksum_xor": 0
+  },
+  "audio": "not separately reported in this measurement",
+  "hardware_smoke_passed": true,
+  "full_hardware_qualification": false,
+  "result": "no deadline misses observed; margin249us, below indicative300-400us target"
+}

@@ -1,0 +1,2 @@
+PASS consumer mixes before producer retires; bounded handoff, exact10voice audio/full state
+PASS delayed worker takes bounded join path exactly once, no DSP retry, exact audio/full state
