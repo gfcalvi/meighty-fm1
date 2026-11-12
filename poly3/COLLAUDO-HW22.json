@@ -1,0 +1,32 @@
+{
+  "version": "1.02 A6",
+  "build": 22,
+  "firmware_sha256": "7e9e300a7a163c3771ffa1cb31e9e35580f73ef3907de7eae1494dbd5302e8a3",
+  "source": "user report from physical FM-1; manual live stress procedure",
+  "live_stress": {
+    "max_us": 2859,
+    "late": 0,
+    "misses": 0,
+    "budget_us": 2902,
+    "margin_us": 43,
+    "cost_us": {
+      "prep": 104,
+      "cpu0": 2233,
+      "cpu1": 2541,
+      "wait": 3,
+      "mix_fx": 474
+    },
+    "audio": "good (user report)",
+    "voices": "10 sequencer voices plus keyboard preview on another track"
+  },
+  "previous_checks": {
+    "three_notes_individual_release": "PASS on A1",
+    "long_note_three_voice_pad": "clean on A5",
+    "save_load_power_cycle": "PASS on A5; project format unchanged"
+  },
+  "software_checks": "all candidate A6 software tests passed; details VERIFICHE.json and logs",
+  "hardware_smoke_passed": true,
+  "full_hardware_qualification": false,
+  "limitation": "43us observed margin only; no claim of universal worst-case timing or production qualification",
+  "result": "functional live test PASS under tested conditions; retain A6 as tested candidate"
+}

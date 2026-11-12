@@ -22,7 +22,7 @@
   "host_sanitizers": "ASan/UBSan pass",
   "flash_regions": "unchanged",
   "font_lossless_saving": 6375,
-  "physical_usb": "A6 not tested; A5 10voices zero late, pad clean, save/load PASS, live11voices FAIL; live3notes/release PASS",
+  "physical_usb": "A6 live physical test PASS: MAX2859us, LATE0, MISSES0, good audio;43us margin; full qualification not claimed",
   "audio_vs_A1_frames": 1152000,
   "prior_A1_poly_off_idle": [
     1445,
@@ -90,5 +90,23 @@
     15
   ],
   "physical_A5_pad_clean": true,
-  "physical_A5_save_load_pass": true
+  "physical_A5_save_load_pass": true,
+  "hardware_smoke_passed": true,
+  "physical_A6_live": {
+    "max_us": 2859,
+    "late": 0,
+    "misses": 0,
+    "budget_us": 2902,
+    "margin_us": 43,
+    "cost_us": {
+      "prep": 104,
+      "cpu0": 2233,
+      "cpu1": 2541,
+      "wait": 3,
+      "mix_fx": 474
+    },
+    "audio": "good (user report)",
+    "voices": "10 sequencer voices plus keyboard preview on another track"
+  },
+  "physical_test_report": "COLLAUDO-HW22.json"
 }
