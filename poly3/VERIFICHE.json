@@ -1,14 +1,14 @@
 {
   "target": "FM1 hardware candidate PI32v2",
-  "image_bytes": 551176,
+  "image_bytes": 551328,
   "package_bytes": 611083,
-  "sha256": "d1459104b51a940a321930fe993af63f43c67940ace5f71d9413324746921b32",
+  "sha256": "7e9e300a7a163c3771ffa1cb31e9e35580f73ef3907de7eae1494dbd5302e8a3",
   "storage": "8 transactional slots 0xaf000..0xdefff; OTA 0xe0000..0xe4fff excluded",
   "hardware_validated": false,
-  "version": "1.02 A5",
-  "build": 21,
+  "version": "1.02 A6",
+  "build": 22,
   "suite": "2.2",
-  "product": "FM-1_998206",
+  "product": "FM-1_998207",
   "project_bytes": 11944,
   "previous_project_bytes": 11940,
   "mono_audio": "RC7 identical:19cases/608000frames",
@@ -22,7 +22,7 @@
   "host_sanitizers": "ASan/UBSan pass",
   "flash_regions": "unchanged",
   "font_lossless_saving": 6375,
-  "physical_usb": "A5 not tested; A4 10voices FAIL,9voices zero late but narrow margin and crackle; live3notes/release PASS",
+  "physical_usb": "A6 not tested; A5 10voices zero late, pad clean, save/load PASS, live11voices FAIL; live3notes/release PASS",
   "audio_vs_A1_frames": 1152000,
   "prior_A1_poly_off_idle": [
     1445,
@@ -76,5 +76,19 @@
     0,
     0
   ],
-  "preferred_goal": "3voices on one track plus7mono"
+  "preferred_goal": "3voices on one track plus7mono",
+  "live_cases": 2432,
+  "preview_after_submit": true,
+  "prior_A5_ten": [
+    2819,
+    0,
+    0
+  ],
+  "prior_A5_live": [
+    2964,
+    15,
+    15
+  ],
+  "physical_A5_pad_clean": true,
+  "physical_A5_save_load_pass": true
 }
