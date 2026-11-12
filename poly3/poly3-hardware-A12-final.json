@@ -1,0 +1,41 @@
+{
+  "version": "1.02 A12",
+  "build": 28,
+  "firmware_sha256": "033d735334d24d67b980f7140f711b5c4127aa4323c53838880963aa19438595",
+  "stage": "final report following same-session interactive playback",
+  "max_us": 2637,
+  "late": 97,
+  "misses": 0,
+  "budget_us": 2902,
+  "margin_us": 265,
+  "cost_us": {
+    "prep": 105,
+    "cpu0": 1823,
+    "cpu1": 2435,
+    "wait": 344,
+    "mix_fx": 320
+  },
+  "schedule_us": {
+    "irq_off_max": 150,
+    "timer5_max": 34,
+    "entry_gap_max": 16785,
+    "largest_late_duration": 2437,
+    "largest_late_gap": 6075,
+    "largest_late_recent_irq_off": 0,
+    "largest_late_irq_age": 0,
+    "largest_late_recent_timer5": 7
+  },
+  "baseline": {
+    "max_us": 723,
+    "late": 0,
+    "misses": 0,
+    "irq_off_max": 19,
+    "timer5_max": 34,
+    "entry_gap_max": 2907
+  },
+  "new_late_since_baseline": 97,
+  "audio": "not separately reported for this HW28 measurement",
+  "interpretation": "handler duration remains within budget; large gaps not explained by measured UI mask or TIMER5 body maxima; cause not proven",
+  "pending_user_question": "whether Save/Load operations were used",
+  "full_hardware_qualification": false
+}

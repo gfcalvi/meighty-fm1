@@ -1,31 +1,30 @@
-MEIGHTY 1.02 A12 / HW28 — DIAGNOSTICA SCHEDULAZIONE — TOOLS 2.2
+MEIGHTY 1.02 A13 / HW29 — INGRESSI IRQ IN RAM — TOOLS 2.2
 
-Questa build osserva le interruzioni e le sezioni critiche. Non è una nuova ottimizzazione o una correzione già dimostrata dei LATE. Conserva suoni, tre voci, altri sette canali, filtri, effetti, priorità e comportamento dei controlli di HW27.
+Candidata per verificare il percorso degli interrupt. Mantiene la sintesi di HW28, il buffer di128frame, il budget nominale2902µs, la stessa latenza di buffering e le priorità audio3/timer4. Nessuna riduzione di suoni, voci o effetti.
 
-PERCHÉ SERVE
-HW27, prova breve: MAX 2632 µs, LATE 0, MISSES 0, margine 270 µs. Prova lunga interattiva: MAX 2724 µs, LATE 26, MISSES 0, margine 178 µs; audio confermato senza nuove interruzioni.
-MISSES conta i gestori audio la cui durata misurata supera 69632 tick (circa 2902 µs). LATE aumenta se la metà DMA libera cambia fra il campionamento iniziale e il controllo dopo scrittura/sync/ack. Un gestore può durare meno del budget ma arrivare alla scadenza DMA se è partito tardi; il controllo è conservativo e non dimostra da solo un'interruzione udibile. I contatori includono anche startup e caricamento, non soltanto PLAY. Per questo serve una lettura prima della riproduzione.
+DATI DI PARTENZA
+HW28 prima diPLAY: MAX723µs/LATE0/MISSES0;IRQoffMAX19,TIMER5MAX34,GAPMAX2907µs.
+Dopo la prova interattiva: MAX2637µs/LATE97/MISSES0;IRQoffMAX150,TIMER5MAX34,GAPMAX16785µs. Il LATE più lungo durava2437µs conGAP6075µs; nessuna IRQoff recente valida e ultimo TIMER5 recente7µs.
+I97LATE sono nuovi rispetto alla baseline. Il tempo del corpo del gestore rimane sotto il budget; i grandi GAP non sono spiegati dai massimi delle sezioni UI e del timer già osservate. Questo non prova ancora una causa specifica.
 
-COSA VIENE MISURATO
-La vecchia misura DIV/SHIFT all’avvio, già ripetutamente confermata su HW24–HW27, è sostituita dalle nuove osservazioni; non vengono restituiti risultati fittizi del benchmark. Il codice sonoro non cambia. Le misure aggiungono un piccolo carico, non ancora quantificato sul dispositivo.
-Leggi carico audio mostra:
-- IRQ off MAX: più lunga sezione esterna con interrupt disabilitati, mentre il DMA audio è attivo. Le sezioni annidate non riavviano la misura.
-- TIMER5 MAX: durata massima del gestore timer/input/USB, mentre l’audio è attivo.
-- GAP MAX: massimo intervallo fra ingressi consecutivi nel gestore audio. Riavvio del DMA e primo ingresso sono esclusi; non è una misura assoluta della latenza d’ingresso.
-- LATE più lungo, durata: durata fino al controllo DMA del più lungo gestore che ha incrementato LATE.
-- GAP dell’evento: intervallo fra ingressi relativo a quello stesso LATE.
-- IRQ off recente e sua età: ultima sezione critica terminata entro circa un periodo audio prima dell’ingresso di quell’evento.
-- TIMER5 recente: durata dell’ultimo timer concluso entro circa un periodo prima di quell’ingresso. Un campione incoerente per una preemption viene scartato.
-Zero nei campi recenti indica nessun campione valido nella finestra; tutti zero nei campi LATE indica nessun evento registrato. I massimi globali possono riferirsi a eventi diversi; solo gli ultimi quattro valori accompagnano il LATE più lungo. Sono correlazioni, non una prova automatica della causa.
-I massimi restano dall’accensione. Il caricamento arresta/riavvia il DMA: il GAP scarta la pausa intenzionale ma conserva i massimi precedenti. Le letture non modificano progetti o slot.
+COSA CAMBIA
+Il DSP era già in RAM. Gli ingressi assembly degli interrupt e il prefisso del gestore C passavano ancora dalla flash prima del timestamp iniziale. HW29 usa gli ingressi RAM già previsti dal BSP, copiandoli correttamente all’avvio prima di abilitarli. Il gestore audio e i suoi due piccoli osservatori finali sono in RAM; la copia dei cinque tempi non chiama più memcpy dalla flash. Il prefisso C di TIMER5 è nella seconda banca RAM; i successivi richiami input/USB possono ancora usare flash, ma avvengono dopo l’inizio della misura.
+L’audit del binario verifica tutti e tre i banchi caricati, gli indirizzi dei gestori e tutti e sei i percorsi di inizializzazione/riavvio audio. Non si esegue codice RAM prima della copia e del fence csync.
+Resta un’ipotesi da misurare sul dispositivo: non si dichiara risolta la causa dei LATE dai soli test software. L’ACK DMA resta nella posizione precedente; priorità e geometria del buffer non cambiano.
 
 INSTALLAZIONE E PROVA
-1. Apri la pagina HTTPS, tab Firmware, scegli Installa 1.02 A12 e conferma. Mantieni cavo e alimentazione durante l’update.
-2. Verifica GLOBAL: 1.02 A12 e Leggi carico audio: HW28. Su iPhone aggiorna Make Available Offline della nuova pagina.
-3. Riavvia e carica lo stesso progetto stress con Poly T8. Prima di PLAY premi Leggi carico audio e conserva la lettura completa: è il riferimento che separa caricamento e riproduzione.
-4. Seleziona T1 / I10 (FM4) e ripeti la prova lunga navigando fra le pagine, modificando cutoff/risonanza/mandate e suonando dalla tastiera. Non serve salvare o ricaricare durante questa prova.
-5. STOP, Leggi carico audio e invia entrambe le letture, inclusa tutta la parte Schedule. Riporta eventuali nuove interruzioni udibili. Se LATE era già presente prima di PLAY e non aumenta, non attribuirlo alla navigazione durante PLAY.
-Non occorre ripetere separatamente pad, release e Save/Load già confermati. Per tornare alla versione sonoramente collaudata usa Ritorno-A11.html (HW27); restano anche i ritorni precedenti. Salva separatamente la pagina di ritorno se vuoi usarla offline.
+1. Apri la pagina HTTPS, Firmware, Installa1.02A13; conferma e mantieni cavo e alimentazione durante la scrittura.
+2. In GLOBAL verifica1.02A13 e nella letturaHW29. Dopo il riavvio controlla prima che una nota e la navigazione funzionino.
+3. Carica lo stesso stress conPolyT8. PRIMA diPLAY conserva una lettura completa di Leggi carico audio.
+4. Ripeti la prova interattiva10minuti conT1/I10FM4: pagine,cutoff/risonanza/mandate e tastiera. Per isolare questa prova non usareSave/Load o altre operazioni sugli slot durantePLAY.
+5. STOP e seconda lettura completa, compresaSchedule. Riporta anche eventuali nuove interruzioni udibili. Non riavviare o ricaricare fra le due letture.
+Ritorno-A12.html reinstalla esattamenteHW28; sono mantenuti i ritorni precedenti. Su iPhone aggiornaMakeAvailableOffline e conserva separatamente il ritorno per usarlo senza rete. Nessuna installazione fisica è stata eseguita dall’agente.
+
+COME LEGGERE SCHEDULE
+MISSES conta d>69632tick (circa2902µs) nel corpo misurato del gestore. LATE conta la metà DMA cambiata fra la lettura iniziale e il controllo dopo sync/ACK. Un corpo sotto budget non esclude un ingresso ritardato. Il conteggio conservativo non dimostra da solo un’interruzione udibile.
+IRQoffMAX eTIMER5MAX sono massimi globali mentre il DMA è attivo. GAPMAX è il massimo intervallo fra ingressi; primo ingresso e riavvioDMA sono esclusi. Non è una misura assoluta della latenza di ingresso.
+LATEpiùlungo conserva durata e quattro osservazioni riferite allo stesso evento: GAP, ultimaIRQoffrecente, suaetà e ultimoTIMER5recente. Recente significa concluso entro circa un periodo audio prima dell’ingresso. Zero indica nessun campione valido; tutti i campiLATEzero indicano nessunLATE osservato. Sono correlazioni, non diagnosi automatiche.
+I contatori includono startup e caricamento e restano dall’accensione. Per questo confrontiamo due letture. I calcoli diagnostici aggiungono un piccolo carico non quantificato sul dispositivo. Il vecchio benchmarkDIV/SHIFT è stato sostituito daSchedule daHW28 in poi; nessun valore fittizio viene mostrato.
 
 USO DELLA POLIFONIA
 GLOBAL → Poly 3 track → OFF oppure T1–T8 con K2. La scelta viene salvata nel progetto. La traccia scelta suona tre note vere, con filtri, inviluppi e rilasci indipendenti; le altre sette restano monofoniche. Mixer, mute/solo e mandate appartengono al gruppo. Alla quarta nota si riusa una voce libera oppure la più vecchia.
@@ -38,7 +37,6 @@ Questa suite 2.2 ha quattro tab: Firmware, Backup/estrazione, Conversione, Ripri
 I vecchi progetti da 11940 byte sono migrati; quelli attuali ne usano 11944. Le banche polifoniche usano .meighty v2/schema2. Non ridurre i progetti polifonici per i vecchi firmware; conserva un backup .meighty prima di un eventuale ritorno. I dati musicali restano locali al browser.
 
 VERIFICHE
-18 test host passati (ASan/UBSan e ThreadSanitizer per il renderer). Nuova diagnostica verificata con orologi simulati: startup/stop esclusi, riavvio DMA e primo GAP esclusi, wrap del timer, finestra temporale, snapshot dell’evento e conservazione del LATE più lungo. Sono test logici: non misurano latenze del chip né dimostrano l’assenza di ritardi reali.
-Restano passati 9001512 confronti dei prodotti, 524288 frame filtro contro HW26, 7370775 interpolazioni, FM4 ed effetti congelati, gold A1 1152000 frame identici e stress nativo 1920000 frame/11 voci con hash invariato. Live 2432 casi, cache 1536 blocchi, sparse 432, renderer 1216000 frame e ricampionamento 258174 frame esatti.
-Tools: 125 controlli dei veri handler JavaScript e del core C, inclusi profilo interrupt e rifiuto di risposte troncate/errore. 123 controlli con gli stessi tools collegati a HW27 confermano la compatibilità precedente, inclusa la vecchia misura DIV/SHIFT. Tutti gli otto slot, import sparsi, OTA, loader, immagine e copie RAM sono verificati.
-Il nuovo comando diagnostico read-only è 0x6e: status + otto uint32 in microsecondi. 0x67 e 0x6c restano invariati; 0x6d non è disponibile su HW28. I tools aggiornati scelgono la query in base alla versione. Usa questa pagina /poly3 per HW28.
+18testhost conASan/UBSan eThreadSanitizer passati. Audio goldA1:1152000frame identici; stress nativo11voci/1920000frame con hash74916ec3ba4c1e56 invariato. Confronti prodotti9001512,filter524288,interpolazioni7370775,FM4oracle131072,FXoracle96000;live2432,cache1536,sparse432,renderer1216000,resampler258174,clock/overlap/join passati.
+ELF/immagine: codice dei tre banchi identico ai dati di caricamento; ordine copia/fence prima degliIRQ verificato. EntrateRAM di audio/timer, prefissiC, chiamate dirette audio e osservatori finali risiedono nelle regioni previste; osservatori finali senza chiamate libc. Tutti i sei restartDMA puntano al vettoreRAM. LimitiROM/RAM e guardie rispettati; progetto11944,partizioni e bootloader invariati.
+Tools:125controlli del client corrente sul coreHW29 e125sul precedenteHW28, inclusi profiloSchedule,risposte incomplete rifiutate,tutti8slot e import sparsi. OTA,loader,HTML,ZIP e pacchetti verificati. Protocollo diagnostico invariato:0x67,0x6c,0x6e;0x6d indisponibile daHW28. I risultati software non sono un collaudo fisico del nuovo percorsoIRQ.

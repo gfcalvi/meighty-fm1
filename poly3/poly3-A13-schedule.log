@@ -1,0 +1,1 @@
+PASS audio schedule: inactive boot/stop excluded, outer mask timestamps, timer wrap, first entry/restart excluded from gaps, recent-event window, co-occurring snapshot and largest-LATE preservation. Fake timings only.

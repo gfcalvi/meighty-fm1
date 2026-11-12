@@ -1,0 +1,1 @@
+PASS 7370775 exact interpolation checks: all131071 endpoint deltas,8/16/24-bit boundary fractions,1M random24-bit fractions,sine/bell wrap,4banks x6mips x256positions x65phases and clamped Braids tables vs frozen signed64-bit formulas

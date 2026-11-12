@@ -1,0 +1,29 @@
+{
+  "secondary_ram_bytes": 712,
+  "secondary_image_matches_ELF": true,
+  "boot_order": "copy DSP RAM -> copy IRQ entries -> copy secondary RAM -> csync -> device init -> IRQ enable",
+  "rom_remaining": 352,
+  "ramtext_remaining": 568,
+  "bss_to_stack_guard": 6316,
+  "project_bytes": 11944,
+  "voice_runtime_cache_only": true,
+  "irq_ram_addresses": {
+    "isr_alnk0_ram": "0x1c07cb4",
+    "isr_timer5_ram": "0x1c07ca0",
+    "fm1_alnk0_irq": "0x1c00b7c",
+    "fm1_timer5_irq": "0x1c08000",
+    "tracker_device_active_voices": "0x1c07196",
+    "tracker_device_audio_cost": "0x1c071be",
+    "tracker_device_render": "0x1c071e0"
+  },
+  "copied_irq_bank_bytes": 40,
+  "all_dma_restarts_use_ram_vector": 6,
+  "audio_direct_callees_in_ram": true,
+  "tail_observers_no_libc_calls": true,
+  "audio_frames": 128,
+  "audio_budget_us": 2902,
+  "interrupt_priorities_unchanged": [
+    3,
+    4
+  ]
+}
