@@ -1,102 +1,19 @@
 {
   "target": "FM1 hardware candidate PI32v2",
-  "image_bytes": 552272,
+  "image_bytes": 552552,
   "package_bytes": 611083,
-  "sha256": "be623f8c3999a7890dafad6dbd5fa4b5daf618bcc34f92311cd33580f377ae09",
+  "sha256": "f33065cd6662fbe5731bfd002a3250a5dd839023235d085e2ef26e4c4e913ccb",
   "storage": "8 transactional slots 0xaf000..0xdefff; OTA 0xe0000..0xe4fff excluded",
   "hardware_validated": false,
-  "version": "1.02 A8",
-  "build": 24,
+  "version": "1.02 A9",
+  "build": 25,
+  "product": "FM-1_998210",
   "suite": "2.2",
-  "product": "FM-1_998209",
   "project_bytes": 11944,
   "previous_project_bytes": 11940,
-  "mono_audio": "RC7 identical:19cases/608000frames",
-  "render_regression_frames": 1216000,
-  "tools_new_checks": 123,
-  "tools_legacy_checks": 118,
-  "native_stress_frames": 1920000,
-  "codec_new_checks": 71,
-  "codec_legacy_checks": 63,
-  "tsan": "pass",
-  "host_sanitizers": "ASan/UBSan pass",
-  "flash_regions": "unchanged",
-  "font_lossless_saving": 6375,
-  "physical_usb": "A8 not tested; A7 margin goal not achieved MAX2880/0/0, A6 live PASS MAX2859/0/0; live3notes/release PASS",
-  "audio_vs_A1_frames": 1152000,
-  "prior_A1_poly_off_idle": [
-    1445,
-    0,
-    0
-  ],
-  "prior_A1_poly_off_play": [
-    3156,
-    2619,
-    2632
-  ],
-  "prior_A1_poly_on_play": [
-    3865,
-    8077,
-    8169
-  ],
-  "render_split": "adaptive active voices;9->4+5,10->4+6 with streaming FX overlap",
-  "braids_fm": "exact variable division cache",
-  "partial_mixer": "parallel pan/sends with exact per-track ramp snapshots",
-  "render_chunk": 128,
-  "resampler_regression_frames": 258174,
-  "prior_A2_poly_on_play": [
-    3753,
-    6573,
-    6576
-  ],
-  "prior_A3_poly_on_play": [
-    3183,
-    2411,
-    2478
-  ],
-  "prior_A3_cost": [
-    381,
-    2148,
-    1964,
-    0,
-    612
-  ],
-  "adaptive_split": true,
-  "nine_voice_cases": 432,
-  "stream_group": 8,
-  "streaming_overlap_test": true,
-  "bounded_wait_join_test": true,
-  "prior_A4_ten": [
-    2955,
-    78,
-    78
-  ],
-  "prior_A4_nine": [
-    2821,
-    0,
-    0
-  ],
-  "preferred_goal": "3voices on one track plus7mono",
-  "live_cases": 2432,
-  "preview_after_submit": true,
-  "prior_A5_ten": [
-    2819,
-    0,
-    0
-  ],
-  "prior_A5_live": [
-    2964,
-    15,
-    15
-  ],
-  "physical_A5_pad_clean": true,
-  "physical_A5_save_load_pass": true,
-  "settled_mixer_cache": true,
-  "cache_blocks": 1536,
-  "exact_lfo_rates": 256,
-  "secondary_ram_code_bytes": 692,
-  "prior_A6_live": [
-    2859,
+  "physical_usb": "HW25 not yet measured; HW24 reference 2791/0/0",
+  "prior_A8_live": [
+    2791,
     0,
     0
   ],
@@ -104,11 +21,32 @@
     300,
     400
   ],
-  "distributed_exact_vu": true,
-  "boot_arithmetic_benchmark": true,
-  "prior_A7_live": [
-    2880,
-    0,
-    0
-  ]
+  "fm4_cache_oracle_samples": 131072,
+  "effects_oracle_wet_frames": 96000,
+  "audio_vs_A1_frames": 1152000,
+  "native_stress_frames": 1920000,
+  "native_stress_hash": "74916ec3ba4c1e56",
+  "live_cases": 2432,
+  "cache_blocks": 1536,
+  "sparse_cases": 432,
+  "render_regression_frames": 1216000,
+  "resampler_regression_frames": 258174,
+  "tools_new_checks": 123,
+  "host_sanitizers": "ASan/UBSan pass",
+  "tsan": "pass",
+  "flash_regions": "unchanged",
+  "math_benchmark": "unchanged; full loop timings only",
+  "exact_fx_shifts": true,
+  "exact_fm4_increment_cache": true,
+  "memory": {
+    "secondary_ram_bytes": 692,
+    "secondary_image_matches_ELF": true,
+    "boot_order": "copy secondary RAM -> math benchmark -> device init -> CPU1/audio",
+    "rom_remaining": 120,
+    "ramtext_remaining": 668,
+    "bss_to_stack_guard": 6380,
+    "project_bytes": 11944,
+    "voice_runtime_cache_only": true
+  },
+  "fallback": "Ritorno-A8.html"
 }

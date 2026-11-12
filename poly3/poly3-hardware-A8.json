@@ -1,0 +1,30 @@
+{
+  "version": "1.02 A8",
+  "build": 24,
+  "firmware_sha256": "be623f8c3999a7890dafad6dbd5fa4b5daf618bcc34f92311cd33580f377ae09",
+  "source": "user report from physical FM-1",
+  "max_us": 2791,
+  "late": 0,
+  "misses": 0,
+  "budget_us": 2902,
+  "margin_us": 111,
+  "cost_us": {
+    "prep": 102,
+    "cpu0": 2207,
+    "cpu1": 2585,
+    "wait": 67,
+    "mix_fx": 371
+  },
+  "cpu_benchmark": {
+    "iterations": 8192,
+    "division_us": 682,
+    "shift_us": 364,
+    "checksum_xor": 0,
+    "scope": "complete PRNG and division/shift loops; not isolated instruction latency"
+  },
+  "audio": "not separately reported in this measurement",
+  "result": "no deadline misses observed; 111us margin, below the intended 300-400us target",
+  "hardware_smoke_passed": true,
+  "full_hardware_qualification": false,
+  "note": "CPU1 is parallel and must not be added to CPU0; maxima from different runs may describe different blocks. No new firmware build or installation follows from this record."
+}
