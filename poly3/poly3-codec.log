@@ -1,0 +1,1 @@
+PASS 71 codec/protocol checks: old11940 lossless upgrade/downgrade; v2 Poly3+CHD roundtrip all8; guards against unsupported legacy firmware; malformed config refused.
