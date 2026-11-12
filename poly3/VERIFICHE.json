@@ -1,14 +1,14 @@
 {
   "target": "FM1 hardware candidate PI32v2",
-  "image_bytes": 550696,
+  "image_bytes": 551176,
   "package_bytes": 611083,
-  "sha256": "076e18ce483b9b44759a59c87e29fcdc5c981796ae10239fcfda1ef88a5574f5",
+  "sha256": "d1459104b51a940a321930fe993af63f43c67940ace5f71d9413324746921b32",
   "storage": "8 transactional slots 0xaf000..0xdefff; OTA 0xe0000..0xe4fff excluded",
   "hardware_validated": false,
-  "version": "1.02 A4",
-  "build": 20,
+  "version": "1.02 A5",
+  "build": 21,
   "suite": "2.2",
-  "product": "FM-1_998205",
+  "product": "FM-1_998206",
   "project_bytes": 11944,
   "previous_project_bytes": 11940,
   "mono_audio": "RC7 identical:19cases/608000frames",
@@ -22,7 +22,7 @@
   "host_sanitizers": "ASan/UBSan pass",
   "flash_regions": "unchanged",
   "font_lossless_saving": 6375,
-  "physical_usb": "A4 not tested; A1/A2/A3 stress FAIL; live3notes/release PASS",
+  "physical_usb": "A5 not tested; A4 10voices FAIL,9voices zero late but narrow margin and crackle; live3notes/release PASS",
   "audio_vs_A1_frames": 1152000,
   "prior_A1_poly_off_idle": [
     1445,
@@ -39,7 +39,7 @@
     8077,
     8169
   ],
-  "render_split": "adaptive active voices;9->4+5,10->5+5",
+  "render_split": "adaptive active voices;9->4+5,10->4+6 with streaming FX overlap",
   "braids_fm": "exact variable division cache",
   "partial_mixer": "parallel pan/sends with exact per-track ramp snapshots",
   "render_chunk": 128,
@@ -62,5 +62,19 @@
     612
   ],
   "adaptive_split": true,
-  "nine_voice_cases": 432
+  "nine_voice_cases": 432,
+  "stream_group": 8,
+  "streaming_overlap_test": true,
+  "bounded_wait_join_test": true,
+  "prior_A4_ten": [
+    2955,
+    78,
+    78
+  ],
+  "prior_A4_nine": [
+    2821,
+    0,
+    0
+  ],
+  "preferred_goal": "3voices on one track plus7mono"
 }
