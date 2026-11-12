@@ -1,8 +1,8 @@
 # Meighty — Manuale utente italiano
 
-Edizione del 12 novembre 2026, aggiornata per Meighty 1.01 RC7 / HW16. Questa guida accompagna la composizione su otto tracce: scelta dei suoni, Phrase e Chain, arrangiamento, modulazioni, mixer ed effetti. Il laboratorio mostra come combinare gli FX; il riferimento finale documenta tutti i comandi e le differenze nelle Table.
+Edizione del 12 novembre 2026, aggiornata per Meighty 1.02. Questa guida accompagna la composizione su otto tracce: scelta dei suoni, Phrase e Chain, arrangiamento, modulazioni, mixer ed effetti. Il laboratorio mostra come combinare gli FX; il riferimento finale documenta tutti i comandi e le differenze nelle Table.
 
-I nomi sul display restano in inglese. K1–K4 indicano i quattro encoder da sinistra a destra; i valori FX sono esadecimali. La guida riguarda soprattutto RemoteFM1 su iPhone e iPad; formati e collegamenti degli altri ambienti sono distinti nel capitolo 8.
+I nomi sul display restano in inglese. K1–K4 indicano i quattro encoder da sinistra a destra; i valori FX sono esadecimali. La guida descrive Meighty sul FM-1 fisico. Per installare, trasferire progetti e fare backup usa i tools da browser su Mac/PC o in MIDIWeb Browser su iPhone e iPad; il capitolo 8 spiega anche l’uso offline.
 
 Per imparare, prepara una sola traccia, ascolta il risultato e aggiungi una trasformazione alla volta. Per lavorare su un brano esistente, salva prima uno stato nominato nell’app.
 
@@ -11,7 +11,7 @@ Per imparare, prepara una sola traccia, ascolta il risultato e aggiungi una tras
 
 Primo utilizzo: capitoli 1–3, poi 8 per conservare il lavoro. Suoni e mix: capitoli 4–7. Table e generazione: capitoli 9–11. Per cercare un codice: indice FX nel capitolo 14 e riferimento per famiglie nel 12.
 
-Gli esercizi H01–H24 sono percorsi musicali completi. Le ricette G01–G06 del capitolo 10 spiegano pool di due o tre note, estrazioni per step o per Phrase e performance evolutive, con sei stati pronti nel pacchetto Generazione RemoteFM1. E01–E13 confrontano combinazioni e ordine degli FX; i loro stati sono nel pacchetto Esempi RemoteFM1. Ogni esercizio spiega preparazione, dati, risultato e una prova alternativa.
+Gli esercizi H01–H24 sono percorsi musicali completi. Le ricette G01–G06 del capitolo 10 spiegano pool di due o tre note, estrazioni per step o per Phrase e performance evolutive, con sei percorsi guidati da ricostruire riga per riga. E01–E13 confrontano combinazioni e ordine degli FX; le tabelle riportate permettono di ricostruire ogni prova nello strumento. Ogni esercizio spiega preparazione, dati, risultato e una prova alternativa.
 
 
 # 1 La prima sessione
@@ -19,13 +19,16 @@ Gli esercizi H01–H24 sono percorsi musicali completi. Le ricette G01–G06 del
 L’obiettivo è scegliere un suono, scrivere una battuta, ascoltarla e salvarla. Prima di esplorare le trasformazioni, costruisci un collegamento semplice fra Song, Chain e Phrase. In seguito potrai riutilizzare gli stessi oggetti in un arrangiamento.
 
 
-## Aprire Meighty su iPhone o iPad
+## Installare e aprire Meighty
 
-1. In RemoteFM1 importa fm1_m8-follow-20261105.rfm1 da Firmware → Add firmware e seleziona Meighty Tracker.
+1. Collega il FM-1 con un cavo USB dati. Apri **https://gfcalvi.github.io/meighty-fm1/** in Chrome su Mac/PC oppure in MIDIWeb Browser su iPhone/iPad USB-C. Il browser gestisce installazione e progetti; il suono viene prodotto dal FM-1.
 
-2. Scegli Sound source → This iPhone o This iPad. PLAY avvia il materiale attualmente in memoria.
+2. Nella scheda Firmware scegli **Installa Meighty 1.02**, collega la porta quando richiesto e conferma. Mantieni alimentazione e cavo durante la scrittura. Dopo il riavvio apri Global per verificare la versione.
 
-3. Per iniziare senza la demo, salva prima il lavoro da conservare. Apri Global con GLO, seleziona New project con K1, premi e rilascia REC, poi premi REC di nuovo entro sette secondi. Il nuovo progetto nasce in memoria: salvalo nello slot desiderato. Non occorre importare uno stato vuoto.
+3. Per usare i tools in mobilità, mentre sei online apri la stessa pagina HTTPS in MIDIWeb Browser e scegli **Make Available Offline**. Prova poi la pagina senza rete, con il FM-1 collegato: il Mac non serve. L’archivio iOS non richiede launcher o file .command; il punto di accesso iniziale è la pagina HTTPS.
+
+4. Per iniziare un brano scegli in Global uno slot libero e usa Load slot. Si apre un progetto vuoto, pronto per scrivere. Per sostituire un brano usa Clear slot con conferma. Salva il lavoro con Save slot; non serve inizializzare lo slot.
+
 
 Tasto | Pagina o azione
 
@@ -53,7 +56,7 @@ ARP | Catalogo preset in Instrument
 
 REC | Azione contestuale della pagina
 
-SELECT sceglie la traccia; ALGORITHM scorre le righe. Da RC7, entrando in Chain da Song si apre la Chain assegnata alla traccia e alla riga selezionate. SELECT in Chain apre la Chain della nuova traccia; il numero C00–C1F è indicato in alto, C-- indica assenza di assegnazione. K3 permette sempre la scelta manuale dal pool. Nella pagina Phrase, SELECT apre anche la Phrase della nuova traccia: durante PLAY segue la posizione in esecuzione; da fermo usa la riga Song scelta e la posizione Chain scelta (la prima se arrivi direttamente da Song). Una posizione senza assegnazione mostra P-- / NO PHRASE e non modifica la Phrase precedente. K3 permette ancora di scegliere esplicitamente una Phrase dal pool, anche non assegnata. Le Phrase sono condivise: due tracce che richiamano lo stesso ID modificano lo stesso oggetto. K1–K4 sono i quattro rotativi: la legenda in basso indica la funzione nella pagina. PRESETS cambia vista e non carica un suono da solo.
+SELECT sceglie la traccia; ALGORITHM scorre le righe. Entrando in Chain da Song si apre la Chain assegnata alla traccia e alla riga selezionate. SELECT in Chain apre la Chain della nuova traccia; il numero C00–C1F è indicato in alto, C-- indica assenza di assegnazione. K3 permette sempre la scelta manuale dal pool. Nella pagina Phrase, SELECT apre anche la Phrase della nuova traccia: durante PLAY segue la posizione in esecuzione; da fermo usa la riga Song scelta e la posizione Chain scelta (la prima se arrivi direttamente da Song). Una posizione senza assegnazione mostra P-- / NO PHRASE e non modifica la Phrase precedente. K3 permette ancora di scegliere esplicitamente una Phrase dal pool, anche non assegnata. Le Phrase sono condivise: due tracce che richiamano lo stesso ID modificano lo stesso oggetto. K1–K4 sono i quattro rotativi: la legenda in basso indica la funzione nella pagina. PRESETS cambia vista e non carica un suono da solo.
 
 
 ## Scegliere un suono nello slot I00
@@ -123,7 +126,7 @@ POS PHRASE
 LENGTH 4
 ```
 
-Con Phrase 01 diversa nel finale, tre battute restano regolari e la quarta chiude con una variazione. Lo stesso principio permette di costruire sezioni con poche Phrase. Nel firmware non c’è una copia completa di Phrase con un solo comando: per gli esempi brevi riscrivi gli eventi in un ID libero; nel Workbench puoi usare gli strumenti web di copia.
+Con Phrase 01 diversa nel finale, tre battute restano regolari e la quarta chiude con una variazione. Lo stesso principio permette di costruire sezioni con poche Phrase. Per creare una variazione indipendente copia tutte le righe con ARP come SHIFT, poi incollale in una Phrase libera: il procedimento è spiegato nel capitolo 3.
 
 
 ## Durate e indipendenza delle tracce
@@ -150,7 +153,7 @@ La riga scelta deve rientrare in Song LENGTH: con LENGTH 08 sono valide le righe
 
 Esempio: con LENGTH 08, seleziona la riga 04 e premi PLAY per provare la seconda metà. Mentre suona, seleziona 02 e premi REC: il salto avviene entro una riga Phrase (a 120 BPM, al massimo circa 125 ms), senza cambiare il clock o tagliare le code di delay e riverbero. Non aspetta la fine della Chain o della battuta. Quando raggiunge il termine della Song, il ciclo torna alla riga 00.
 
-L’avvio e il salto non simulano le sezioni precedenti: note di pad e comandi che si trovano soltanto prima della destinazione non vengono ricostruiti. Metti i trigger e le automazioni necessari all’inizio di una sezione che vuoi poter lanciare autonomamente. Il salto reinizializza le voci e i loro contatori, conservando i ritorni FX e le impostazioni operative del mixer; un nuovo PLAY da fermo azzera invece le code come prima. PLAY dalle altre pagine e MIDI Start continuano a partire da 00: per scegliere la partenza usa Song.
+L’avvio e il salto non simulano le sezioni precedenti: note di pad e comandi che si trovano soltanto prima della destinazione non vengono ricostruiti. Metti i trigger e le automazioni necessari all’inizio di una sezione che vuoi poter lanciare autonomamente. Il salto reinizializza le voci e i loro contatori, conservando i ritorni FX e le impostazioni operative del mixer; un nuovo PLAY da fermo azzera invece le code come prima. PLAY dalle altre pagine parte da 00: per scegliere la partenza usa Song.
 
 Durante PLAY, Song scorre con la traccia selezionata; Phrase segue anche i cambi di Phrase nella Chain. FOLLOW o FOL indica l’inseguimento. Scorrere manualmente, modificare valori o scegliere un’altra Phrase ferma l’inseguimento e mostra EDIT. Per riprenderlo premi nuovamente FX in Song oppure ENV in Phrase. Un nuovo avvio con PLAY riattiva l’inseguimento.
 
@@ -191,6 +194,29 @@ FAL 00 e OR2 03 | Algoritmo 1 e rapporto 3; sono indici con liste diverse
 
 Se una prova del riferimento usa IN 07 mentre la preparazione indica I00, prepara lo stesso suono anche nello slot 07 oppure cambia la colonna IN per usare I00. TABLE FF significa nessuna Table automatica; in lettura la schermata può mostrare --. Un valore FF dentro un FX non significa automaticamente vuoto: dipende dalla sigla.
 
+
+## Cancellare, selezionare, copiare e annullare
+
+In Song, Chain, Phrase e Table tieni premuto **ARP come SHIFT**. In Instrument ARP apre invece il catalogo preset.
+
+Combinazione | Risultato
+--- | ---
+ARP + ALGORITHM | Estende la selezione sulle righe
+ARP + K1 | Estende la selezione sulle colonne; in Song sceglie le tracce
+ARP + K2 a destra | Seleziona righe intere
+ARP + K2 a sinistra | Torna alla selezione per celle
+ARP + OCT- | Cancella la cella o l’area selezionata
+ARP + OCT+ | Copia la cella o l’area selezionata
+ARP + REC | Incolla alla posizione scelta
+ARP + HOME | Annulla l’ultima cancellazione o incolla nello stesso oggetto
+
+Senza selezione il comando riguarda la cella corrente. Se scegli la sigla di un FX, copia e cancellazione comprendono anche il suo valore; scegliendo solo il parametro agisci su quel valore. Cancellare una nota toglie l’evento dalla Phrase, non invia una Release alla voce che sta già suonando: per questo servono OFF o KIL.
+
+Esempio: duplicare Phrase 00 in Phrase 04. Vai alla riga 00 di Phrase 00; tieni ARP, ruota K2 a destra e ALGORITHM fino a 0F, poi premi OCT+ continuando a tenere ARP. Rilascia ARP, scegli Phrase 04 con K3 e la riga 00, quindi ARP + REC. Ora puoi cambiare il finale senza modificare Phrase 00.
+
+Puoi incollare soltanto fra oggetti dello stesso tipo di pagina, con campi compatibili e spazio sufficiente. Un blocco di sedici righe va incollato dalla riga 00: non si avvolge al termine della Phrase. Il messaggio segnala un bordo o un tipo di campo incompatibile; non viene incollato mezzo blocco.
+
+L’annullamento ha un solo livello e riguarda cancellazione o incolla, nello stesso oggetto. Le modifiche diventano permanenti nello slot soltanto con Save. La selezione sospende il FOLLOW visivo; premi nuovamente il tasto Song o Phrase per riprendere l’inseguimento del cursore in esecuzione.
 
 ## Tempo di una riga
 
@@ -287,8 +313,59 @@ Le forme visualizzate nella prima pagina mostrano le posizioni base. Il moviment
 
 ## Campioni e articolazioni
 
-La sorgente SAMPLE usa lo stesso filtro, ADSR e LFO dei synth, ma una Release non può allungare il file finito. STA e LEN scelgono la regione del trigger; non fanno scrubbing continuo e non aggiungono un loop. Una traccia può alternare più strumenti sample cambiando IN a ogni nota, ma rimane monofonica: due colpi sovrapposti richiedono tracce diverse. Il catalogo completo è nel capitolo 14.
+La sorgente SAMPLE usa lo stesso filtro, ADSR e LFO dei synth, ma una Release non può allungare il file finito. STA e LEN scelgono la regione del trigger; non fanno scrubbing continuo e non aggiungono un loop. Una traccia monofonica può alternare più strumenti sample cambiando IN a ogni nota. Sulla traccia scelta per la polifonia puoi sovrapporre fino a tre trigger dello stesso Instrument con CHD 00. Per un kit con più timbri sovrapposti organizza i colpi su tracce diverse. Il catalogo completo è nel capitolo 14.
 
+
+## Tre voci su una traccia
+
+Apri Global e scegli **Poly 3 track = T1 ... T8** con K2. La scelta assegna tre voci vere a quella traccia e viene salvata nel progetto. Le altre sette tracce restano monofoniche. OFF nel campo Global disabilita la polifonia; non è il comando musicale OFF della Phrase.
+
+La traccia scelta mostra **3V**; Instrument indica anche il contesto della traccia accanto al numero Ixx. Seleziona la traccia polifonica prima di aprire Instrument, scegli un suono e premi tre tasti: le note suonano insieme e ogni rilascio della tastiera interessa il proprio tasto. Alla quarta nota viene riutilizzata una voce libera oppure sostituita la più vecchia.
+
+Ogni voce ha il proprio stato di oscillatori, campione, filtro, inviluppi, LFO e Table. Mixer, pan, mute/solo e mandate sono condivisi dalla traccia. Tre stati separati non implicano uno sfasamento automatico: con le stesse impostazioni le modulazioni possono partire allineate.
+
+Per una parte di accordi usa un unico Instrument sulla traccia polifonica. Se devi cambiare IN mentre rimangono note tenute o code di Release, interrompi prima il gruppo con KIL 00 oppure attendi che le voci siano terminate. Per strati con timbri indipendenti usa tracce distinte.
+
+### Un pad maggiore che occupa solo T4
+
+1. In Global scegli T4 come Poly 3 track; per questa prova imposta Scale su CHROMATIC e Root C.
+2. In I00 carica un pad DUAL WT. Imposta AMP ON, Attack 40, Decay 40, Sustain C0, Release 80, filtro non troppo aperto e TABLE FF.
+3. Collega la Phrase a una Chain e alla cella Song di T4. Scrivi queste righe; lascia vuote quelle non riportate.
+
+```
+ROW NTE IN FX1    FX2
+00  C-4 00 CHD 47 DSN 80
+08  F-4 00 --- 00 RSN 90
+0C  OFF FF --- 00 --- 00
+```
+
+Sulla 00 suonano Do, Mi e Sol. CHD resta attivo: sulla 08 suonano Fa, La e Do, anche se il comando non viene riscritto. OFF sulla 0C rilascia il gruppo. Le mandate appartengono alla traccia; il Master FX deve avere i rispettivi ritorni aperti.
+
+Il massimo rimane tre voci: un nuovo accordo non aggiunge altre tre code al precedente. Le voci vengono riutilizzate e una nota ancora in Release può essere sostituita. Per ascoltare tutta la coda inserisci OFF e lascia tempo prima del trigger seguente.
+
+### Sovrapporre tre note senza scrivere un accordo fisso
+
+```
+ROW NTE IN FX1    FX2
+00  C-4 00 CHD 00 --- 00
+04  E-4 00 --- 00 --- 00
+08  G-4 00 --- 00 --- 00
+0C  OFF FF --- 00 --- 00
+```
+
+Con Sustain alto Do continua quando entra Mi, poi si aggiunge Sol. CHD 00 sceglie la sovrapposizione indipendente, non spegne le voci già attive. OFF sulla 0C rilascia tutte le note della traccia; dalla tastiera i rilasci restano invece individuali. Lo stesso principio sovrappone tre trigger dello stesso sample finché il materiale PCM non termina.
+
+### Accordare, modulare e registrare
+
+CHD 47 usa +4 e +7 semitoni; CHD 37 usa +3 e +7; CHD 57 usa +5 e +7. CHD 40 lascia fondamentale e terza; CHD 07 lascia fondamentale e quinta. Uno zero disabilita quella voce aggiuntiva e non duplica la fondamentale.
+
+La scala quantizza separatamente tutte le note. CHROMATIC conserva gli intervalli esatti; con un’altra scala un intervallo non ammesso viene abbassato al grado consentito. SCA e SCG possono cambiare il contesto locale come sulle tracce monofoniche.
+
+In Phrase la tastiera può registrare fino a tre note come fondamentale più CHD in **FX1**, sostituendo il contenuto precedente di FX1. Il formato registra intervalli entro 15 semitoni dalla nota più bassa; voicing più larghi restano suonabili live ma non entrano in questa codifica compatta.
+
+VOL agisce sulla voce corrente; quando un trigger CHD crea l’accordo il suo valore viene copiato nelle voci aggiunte. LEV controlla sempre il gruppo dal mixer. CUT, parametri di motore e vari comandi Phrase vengono applicati anche alle voci già attive; una Table lavora invece sullo stato della propria voce. LEV, PAN, DSN e RSN restano condivisi anche quando li scrive una Table.
+
+Scegli la traccia polifonica prima di avviare la parte. Cambiare Poly 3 track durante PLAY azzera le due voci aggiuntive e la modalità CHD corrente; per riattivare un accordo riesegui una riga con CHD. Non è un controllo di trasposizione dal vivo.
 
 # 5 Inviluppi filtro e LFO
 
@@ -369,7 +446,7 @@ DSN e RSN nelle Phrase creano override delle mandate: chiudere DSN ferma l’ing
 
 # 7 Global armonia e colori
 
-Da RC6, GLO riunisce BPM, scala, tonica, Slot, Load slot, Save slot, Clear slot, Master FX e palette. K1 seleziona il campo, K2 il valore. REC esegue Load o Save. Clear slot richiede una seconda pressione di conferma. Un passo di K3 carica lo slot selezionato e un passo di K4 lo salva: non sono controlli di scorrimento innocui.
+GLO riunisce BPM, scala, tonica, Slot, Load slot, Save slot, Clear slot, Master FX e palette. K1 seleziona il campo, K2 il valore. REC esegue Load o Save. Clear slot richiede una seconda pressione di conferma. Un passo di K3 carica lo slot selezionato e un passo di K4 lo salva: non sono controlli di scorrimento innocui.
 
 Parametro | Valori o uso
 
@@ -380,6 +457,8 @@ Scale | CHROMATIC, MAJ/IONIAN, DORIAN, PHRYGIAN, LYDIAN, MIXOLYDIAN, MIN/AEOLIAN
 Root | Tonica da C a B
 
 Project slot | Destinazione 1–8 per Save e Load
+
+Poly 3 track | OFF oppure T1–T8; tre voci sulla traccia scelta
 
 Theme | NEON BLUE, SOFT BLUE, AURORA, AMBER
 
@@ -392,10 +471,10 @@ La scala non trascrive le note in memoria: quantizza in esecuzione verso il grad
 
 NEON BLUE mantiene fondo blu, titoli e FX magenta, selezione verde acido, valori gialli e testo bianco. I quattro ruoli possono essere cambiati separatamente. AUTO richiama il default del ruolo; una combinazione diversa dai temi appare come CUSTOM. Scegliere un tema ripristina tutti e quattro i ruoli.
 
-I colori sono nel progetto: SAVE li registra nello slot e Save state li conserva nello stato dell’app. Caricare un altro progetto richiama la sua palette. I LED del meter mantengono verde, giallo e rosso per rendere leggibile il livello indipendentemente dal colore di selezione.
+I colori sono nel progetto: SAVE li registra nello slot e il backup .meighty li conserva nel progetto. Caricare un altro progetto richiama la sua palette. I LED del meter mantengono verde, giallo e rosso per rendere leggibile il livello indipendentemente dal colore di selezione.
 
 
-# 8 Progetti e otto slot — RC7 / Tools 2.1
+# 8 Progetti e otto slot
 
 Gli otto slot sono sempre disponibili. Non esiste un’operazione Init da eseguire prima dell’uso. Il display del firmware indica **S1–S8**, cioè lo slot effettivamente aperto. **S--** indica un progetto temporaneo non associato a uno slot. Cambiare la destinazione in Global non cambia questa indicazione.
 
@@ -405,6 +484,8 @@ Load slot | Apre il brano scelto. Se il posto è vuoto, apre un progetto nuovo e
 Save slot | Salva il progetto aperto nella destinazione scelta e lo associa a quello slot.
 Clear slot | Riporta lo slot a un progetto vuoto persistente, con conferma. Non occorre un Save successivo.
 
+Salva con PLAY fermo: le scritture sulla memoria flash possono sospendere l’audio. Le modifiche ai parametri e la navigazione si possono invece usare durante PLAY.
+
 Il tasto fisico SAVE salva nello slot attualmente aperto. Per salvare una copia in un altro slot, scegli la destinazione in Global e usa Save slot. K3 richiama Load, K4 Save. Clear slot si conferma con un secondo REC entro sette secondi; una modifica ai controlli annulla la conferma.
 
 Clear su uno slot diverso da quello aperto non cambia il progetto in lavorazione. Clear sullo slot aperto aggiorna anche il display con il progetto vuoto. All’avvio viene aperto lo slot 1; non viene ricordato automaticamente l’ultimo slot. Le modifiche musicali restano in RAM fino a Save.
@@ -413,11 +494,11 @@ Clear su uno slot diverso da quello aperto non cambia il progetto in lavorazione
 
 Scegli 2 in Global e usa Load slot. Se è vuoto, puoi iniziare subito a lavorare e poi usare Save. Per azzerare un vecchio brano usa Clear slot con conferma. Non servono Init, New project o una sequenza di preparazione.
 
-## Tools offline 2.1
+## I quattro tools offline
 
 Le quattro schede sono **Firmware**, **Backup ed estrazione**, **Conversione**, **Ripristino / Caricamento**.
 
-Firmware installa il pacchetto RC7 con una conferma. Per i nuovi collegamenti Song/Chain/Phrase serve RC7/HW16; le operazioni sui progetti funzionano da RC6/HW15. Il caricamento di un brano non reinstalla il firmware.
+Firmware installa Meighty 1.02 con una conferma. Se è già installato, usa direttamente gli altri tools: il caricamento di un brano non reinstalla il firmware. L’intera suite funziona senza rete dopo Make Available Offline in MIDIWeb Browser.
 
 Backup ed estrazione: Scarica backup conserva gli otto slot e il progetto in lavorazione. Scarica progetto aperto esporta solo la RAM. Puoi anche aprire un backup esistente e usare Estrai su uno degli otto slot oppure Estrai tutti i brani; lo ZIP contiene un indice anche delle posizioni vuote e la copia in lavorazione, se presente. Nessun backup è obbligatorio prima di un altro comando.
 
@@ -433,13 +514,17 @@ La pagina mostra un solo esito corrente; la cronologia è chiusa nei Dettagli te
 
 ## Formati e ambienti
 
-.meighty conserva una banca e l’eventuale copia in lavorazione. .fm1tracker.json contiene un singolo progetto. .rfm1state è uno stato RemoteFM1, .fm1save uno stato Emulator, .fwsc il firmware. Non usare un firmware come file brano. I vecchi moduli RemoteFM1 e il Workbench conservano i propri controlli: questa revisione riguarda il firmware fisico RC7 e Tools 2.1.
+.meighty conserva una banca e l’eventuale copia in lavorazione; può contenere uno, più brani o tutti gli otto slot. .fm1tracker.json contiene un singolo progetto. .rfm1state e .fm1save sono formati di ambienti di emulazione; .fwsc è il firmware. Non usare un firmware come file brano.
+
+I tools importano i formati compatibili e verificano integrità e struttura. Un progetto polifonico richiede la traccia selezionata e i comandi CHD: la conversione non li elimina per forzare un formato incompatibile. Per conservare tutto il lavoro del FM-1 scegli .meighty. Un progetto salvato non comprende il punto esatto del generatore casuale o le code audio in corso: per una sequenza ripetibile programma SED e gli eventi nella Phrase.
+
+Per lavorare su iPhone senza Mac apri la pagina HTTPS in MIDIWeb Browser e usa Make Available Offline. Il contenuto dei file e le conversioni restano nel browser; per trasferire dati basta il collegamento USB al FM-1. Il pacchetto iOS non contiene .command, .cmd o launcher Python.
 
 Gli esempi Oltre le dune e Orbite profonde hanno rispettivamente 98 e 82 BPM. Sono verificati dal client JavaScript verso dispatcher C e NOR simulata su tutti otto gli slot, anche con dati preesistenti. Questo non sostituisce il collaudo USB fisico.
 
 # 9 Usare le Table come piccoli programmi
 
-Una Table modifica una voce che esiste già. Non è una nona traccia, non aggiunge polifonia e non è un’altra Phrase. Le sue righe contengono PIT relativo, VL assoluto e tre FX. Puoi assegnarla nell’Instrument o avviarla con TBL sulla voce di una traccia.
+Una Table modifica una voce che esiste già. Non è una nona traccia e non è un’altra Phrase. Sulla traccia polifonica ogni voce mantiene il proprio stato Table; CHD si programma nella Phrase e non crea accordi da una Table. Le sue righe contengono PIT relativo, VL assoluto e tre FX. Puoi assegnarla nell’Instrument o avviarla con TBL sulla voce di una traccia.
 
 ```
 TABLE 00
@@ -540,7 +625,7 @@ Alternare A e B conservando la prima Phrase.
 
 Preparazione. Parti da H01 o da una sola traccia con Phrase 00 e Chain 00. Gli oggetti sono condivisi per ID.
 
-1. Crea Phrase 04 con gli stessi eventi di Phrase 00: nel Workbench puoi copiare e incollare le righe; sul pannello riscrivi i pochi eventi. Non è presente una copia completa di Phrase con un unico comando.
+1. Copia Phrase 00 in Phrase 04: dalla riga 00 tieni ARP, ruota K2 a destra per selezionare righe intere e ALGORITHM fino a 0F, poi OCT+ per copiare. Rilascia ARP, scegli Phrase 04 con K3 e la riga 00; ARP + REC incolla il blocco.
 
 2. Cambia soltanto l’ultima nota di Phrase 04. In Chain 00 scrivi 00 alla posizione 00 e 04 alla 01, LENGTH 2.
 
@@ -756,15 +841,15 @@ Da ascoltare. Quattro regioni producono articolazioni diverse dello stesso file.
 
 Prova successiva. Una Table può cambiare STA/LEN e usare RET come retrigger successivo; occorre che la voce sia ancora attiva.
 
-Se il risultato cambia. Non ci sono slice marker, reverse o loop PCM in questa build. STA su un campione già in corso non riposiziona subito la testina.
+Se il risultato cambia. Non ci sono slice marker, reverse o loop PCM in Meighty. STA su un campione già in corso non riposiziona subito la testina.
 
 
 ## Sintesi armonia e movimento
 
 
-### H04 Ottenere un accordo veloce con una sola traccia
+### H04 Creare un arpeggio ritmico su una sola voce
 
-Usare un arpeggio monofonico invece di occupare tre tracce con un accordo.
+Alternare rapidamente le altezze con ARP. Per tre note simultanee usa invece CHD sulla traccia polifonica, come nel capitolo 4.
 
 Preparazione. I00 BASIC PULSE, AMP Sustain C0, TABLE FF, Global CHROMATIC.
 
@@ -1115,7 +1200,7 @@ Da ascoltare. Soltanto la risposta alimenta gli echi; il pad crea la coda diffus
 
 Prova successiva. Per uno spazio più asciutto diminuisci i send prima di abbassare i return: così valuti il contributo di una singola traccia.
 
-Se il risultato cambia. Un LEV molto basso riduce anche il send post fader. Nessun comando Phrase di questa build cambia direttamente decay o feedback master.
+Se il risultato cambia. Un LEV molto basso riduce anche il send post fader. Nessun comando Phrase di Meighty cambia direttamente decay o feedback master.
 
 
 ### H22 Simulare un pompaggio ritmico senza sidechain audio
@@ -1175,22 +1260,22 @@ Chain 05  05 3F 3F 3F   LENGTH 4
 
 Da ascoltare. Le tre voci compongono Re minore con nona aggiunta. Gli attacchi lenti non vengono azzerati a ogni battuta; la risposta e gli echi restano distinti dal fondo armonico.
 
-Prova successiva. Usa le due Song V2 come studio: Oltre le dune e Orbite profonde hanno 116 battute, una sospensione centrale e un finale scritto. Gli stati sono separati dagli esempi E00–E13.
+Prova successiva. Usa le due Song di esempio come studio: Oltre le dune e Orbite profonde hanno 116 battute, una sospensione centrale e un finale scritto. Gli stati sono separati dagli esempi E00–E13.
 
-Se il risultato cambia. Una sola traccia resta monofonica. Una Phrase vuota tiene la voce, mentre una cella Song vuota la spegne e può avere una durata diversa dalle Chain delle altre tracce.
+Se il risultato cambia. Questo esempio usa tre pad con suoni separati; per armonizzare un solo Instrument su una traccia usa CHD e Poly 3 track. Una Phrase vuota tiene la voce, mentre una cella Song vuota la spegne e può avere una durata diversa dalle Chain delle altre tracce.
 
 
 ### H24 Preparare una performance e salvarla correttamente
 
 Passare dalla prova alla conservazione del progetto senza perdere patch e automazioni.
 
-Preparazione. Un progetto funzionante in RemoteFM1 e uno slot Global scelto consapevolmente.
+Preparazione. Un progetto funzionante sul FM-1 e uno slot Global scelto consapevolmente.
 
 1. In Song scegli la traccia con SELECT, OCT− commuta mute e OCT+ solo. Più solo possono essere attivi; mute prevale. Le tracce continuano ad avanzare mentre non si sentono.
 
 2. In Mixer regola le basi LEV/PAN/send; un tocco manuale riprende il controllo del parametro rispetto al relativo override Phrase.
 
-3. In Global scegli lo slot e salva con K4 o SAVE. Poi apri il pannello RemoteFM1 e crea Save state con un nome nuovo.
+3. Premi STOP. In Global scegli la destinazione e usa Save slot; SAVE salva invece lo slot già aperto. Nei tools, Backup ed estrazione permette poi di scaricare il backup .meighty con un nome riconoscibile.
 
 ```
 PRIMA DI CHIUDERE
@@ -1198,14 +1283,14 @@ PRIMA DI CHIUDERE
 2  Controlla mute e solo
 3  Salva lo slot Global scelto
 4  Esporta il file del proprio ambiente
-5  Conserva una copia precedente prima di una nuova versione
+5  Conserva copie nominate prima di sostituire brani o preset
 ```
 
 Da ascoltare. Al caricamento ritrovi strumenti, LFO, Table, Song, mixer di base e impostazioni globali. Non viene ripreso il punto esatto del motore in esecuzione.
 
-Prova successiva. Conserva stati con nomi progressivi prima di sostituire preset o provare nuove generazioni.
+Prova successiva. Conserva progetti e backup con nomi progressivi prima di sostituire preset o provare nuove generazioni.
 
-Se il risultato cambia. Caricare un preset sostituisce lo slot Instrument. Caricare uno stato richiama tutti gli slot del tracker; non importa un singolo progetto in una destinazione libera.
+Se il risultato cambia. Caricare un preset sostituisce lo slot Instrument. Nei tools scegli soltanto le destinazioni da trasferire: un brano nella casella 2 sostituisce solo lo slot 2; le altre posizioni restano invariate.
 
 
 ## Generazione ed evoluzione controllata
@@ -1226,7 +1311,7 @@ G05 | Far evolvere raramente il percorso di un pool | RND salta nella Table solt
 
 G06 | Performance tipo Turing con blocco e rigenerazione | Seme fisso per il loop; cambio del seme dal vivo
 
-Preparazione comune. Usa un progetto nuovo oppure gli stati G01–G06 del pacchetto Generazione RemoteFM1. Gli stati sostituiscono tutti gli otto slot: prima salva il tuo lavoro nel tracker e crea Save state nell’app. Tutti gli esempi usano una sola traccia: Song 00, T1=Chain 00, Song LENGTH 1; Chain 00 contiene Phrase 00, LENGTH 1. Le altre tracce restano vuote. Global: 120 BPM, CHROMATIC, Root C.
+Preparazione comune. Usa un progetto nuovo e ricostruisci i dati della ricetta scelta. Prima di sostituire un brano salva il lavoro e scarica un backup .meighty. Un file importato in una sola casella dei tools modifica solo quello slot. Tutti gli esempi usano una sola traccia: Song 00, T1=Chain 00, Song LENGTH 1; Chain 00 contiene Phrase 00, LENGTH 1. Le altre tracce restano vuote. Global: 120 BPM, CHROMATIC, Root C.
 
 Suono comune. I00 SYNTH, per esempio BASIC PULSE o DUAL WT. TABLE FF nello strumento: le Table vengono scelte dagli FX. AMP ON, Attack 00, Decay 20, Sustain C0, Release 20; filtro aperto e tutte le profondità LFO di pitch a zero. ARP, PBN, PVB, PIT e TSP assenti. Così il pool non viene alterato da altre trasposizioni. Dopo la prova puoi scegliere scala, inviluppi e timbro; una scala diversa può modificare le altezze finali.
 
@@ -1441,7 +1526,7 @@ Una mutazione davvero persistente si può fare manualmente: prepara un anello di
 
 # 11 Combinare gli FX con un metodo di ascolto
 
-Qui ogni esperimento isola una relazione: due parametri, due memorie, un gate oppure due sorgenti di modulazione. I file E01–E13 sono stati RemoteFM1 con una sola traccia e le preparazioni già impostate. Carica lo stato, premi PLAY e cambia soltanto il parametro indicato. Le spiegazioni distinguono il valore scritto da ciò che il motore esegue.
+Qui ogni esperimento isola una relazione: due parametri, due memorie, un gate oppure due sorgenti di modulazione. Gli esempi E01–E13 usano una sola traccia: imposta la preparazione e le righe riportate, premi PLAY e cambia soltanto il parametro indicato. Le spiegazioni distinguono il valore scritto da ciò che il motore esegue.
 
 
 ## E01 Aprire il filtro e spostare lo stesso suono
@@ -1722,7 +1807,7 @@ Controllo. THO cambia la lettura della Table, non sposta fisicamente le note nel
 
 # 12 Riferimento dei comandi FX
 
-Il repertorio comprende 56 comandi operativi e la colonna vuota ---. Cerca prima la famiglia, poi la sigla. Ogni scheda offre due prove e indica cosa cambia nelle Table. L’indice alfabetico finale riporta ogni sigla con la pagina della scheda. Per programmare usa sigla e valore.
+Il repertorio comprende 57 comandi operativi e la colonna vuota ---. Cerca prima la famiglia, poi la sigla. Ogni scheda offre due prove e indica cosa cambia nelle Table. L’indice alfabetico finale rimanda alle schede dei comandi. Per programmare usa sigla e valore.
 
 
 ## Note durata e percorso
@@ -2087,6 +2172,40 @@ Nelle Table. È ancora cumulativo. È distinto dal campo PIT della Table, che as
 Da controllare. La trasposizione cumulativa può proseguire oltre la nota successiva; per l’esercizio riparti con Stop/Play.
 
 
+### CHD Accordi e sovrapposizione su tre voci
+
+Parametro. XY è una coppia di intervalli in semitoni esadecimali rispetto alla nota fondamentale; il comando riguarda la traccia selezionata in Poly 3 track. Su altre tracce non aggiunge voci.
+
+47 crea una triade maggiore; 37 una minore; 57 un sus4. Con X o Y uguale a zero quella voce aggiuntiva è disabilitata. CHD 00 passa alle note indipendenti sovrapposte, senza interrompere le note già in corso. Il valore resta attivo finché viene cambiato; non serve riscriverlo a ogni nota.
+
+Preparazione. Poly 3 track = T4, Phrase assegnata a T4, I00 pad con AMP ON, Sustain C0, Release 60, TABLE FF e scala CHROMATIC.
+
+Prova A: accordi e coda
+
+```
+00 C-4 00 CHD 47 CUT 50
+04 --- FF CUT 70 --- 00
+08 F-4 00 CHD 37 --- 00
+0C OFF FF --- 00 --- 00
+```
+
+La 00 suona Do maggiore e la 04 apre il filtro del gruppo. La 08 suona Fa minore; OFF sulla 0C avvia la Release di tutte le voci. Scegli una scala che ammetta le note desiderate, oppure CHROMATIC per mantenere esattamente gli intervalli.
+
+Prova B: note indipendenti e mandata
+
+```
+00 C-4 00 CHD 00 DSN 90
+04 E-4 00 --- 00 --- 00
+08 G-4 00 --- 00 --- 00
+0C --- FF KIL 00 --- 00
+```
+
+Con sustain aperto le tre note si sovrappongono. KIL 00 spegne il gruppo senza Release; le code già prodotte dal delay master possono continuare. Per un rilascio morbido sostituisci KIL con OFF 00.
+
+Nelle Table. CHD non cambia la modalità polifonica: viene ignorato. Imposta gli intervalli nella Phrase e usa la Table per pitch, volume e trasformazioni della singola voce già attiva.
+
+Da controllare. ARP alterna le altezze di una voce; CHD genera note simultanee. Il massimo è tre voci: l’arrivo di nuove note può sostituire voci ancora tenute o in Release. Per regolare il livello dell’intero accordo usa LEV; VOL può interessare soltanto la voce corrente.
+
 ### ARP Arpeggio monofonico a tre altezze
 
 Parametro. XY: intervalli in semitoni +X e +Y; 00 disattiva.
@@ -2115,7 +2234,7 @@ La triade minore diventa maggiore sulla 08 e si ferma sulla 0C. Gli inviluppi no
 
 Nelle Table. Si somma alla trasposizione della Table. Se non vuoi sommare due arpeggi diversi, disabilita ARP con 00 prima di usare la sequenza PIT della Table.
 
-Da controllare. ARP 00 disattiva gli intervalli, non libera tre voci polifoniche: la traccia rimane monofonica.
+Da controllare. ARP 00 ferma l’alternanza delle altezze. ARP lavora dentro una voce e non abilita o disabilita la polifonia; per gli accordi simultanei usa CHD sulla traccia scelta in Global.
 
 
 ### ARC Velocità dell’arpeggio
@@ -2929,7 +3048,7 @@ Nelle Table. Può trasformare una Table in automazione del mixer. I repeater Tab
 
 Da controllare. Se il volume sembra ripartire a ogni nota stai probabilmente usando VOL; LEV è il livello della traccia.
 
-Se il fader del mixer risale quando avvii PLAY, cerca invece LEV nelle Phrase e nelle Table: ogni esecuzione del comando prevale sul fader manuale. Esempio nel file originale di Oltre le dune: T4 ha LEV E1 nella Phrase 18, riga 00; T5 nella Phrase 1F, riga 02; T6 nella Phrase 26, riga 04. Nella prima riga Song di Oltre le dune, T4 richiama Chain 0C: contiene 18, 3B, 3B, 3B. Chain 00 contiene invece 00, 01, 00, 01. Prima di RC7, il pulsante Chain apriva sempre 00: seleziona manualmente 0C con K3 per ispezionare quella della traccia 4. Sono ID e righe esadecimali: P18 significa Phrase numero 18 in base 16 (24 decimale), non traccia 18; riga 00 è il primo step. E1 è 225/255, circa 88%. Eliminare VOL non elimina questa automazione. Per bilanciare liberamente la traccia, rimuovi LEV anche nelle variazioni successive e nelle eventuali Table; per conservare l’arco programmato, modifica i valori LEV. LEV 00 silenzia la traccia: non cancella il comando. STOP ripristina il livello base salvato nel mixer.
+Se il fader del mixer risale quando avvii PLAY, cerca invece LEV nelle Phrase e nelle Table: ogni esecuzione del comando prevale sul fader manuale. Esempio nel file originale di Oltre le dune: T4 ha LEV E1 nella Phrase 18, riga 00; T5 nella Phrase 1F, riga 02; T6 nella Phrase 26, riga 04. Nella prima riga Song di Oltre le dune, T4 richiama Chain 0C: contiene 18, 3B, 3B, 3B. Chain 00 contiene invece 00, 01, 00, 01. La pagina Chain mostra il riferimento della cella Song selezionata; Cxx è il numero della Chain aperta. K3 permette anche di sceglierne un’altra dal pool. Sono ID e righe esadecimali: P18 significa Phrase numero 18 in base 16 (24 decimale), non traccia 18; riga 00 è il primo step. E1 è 225/255, circa 88%. Eliminare VOL non elimina questa automazione. Per bilanciare liberamente la traccia, rimuovi LEV anche nelle variazioni successive e nelle eventuali Table; per conservare l’arco programmato, modifica i valori LEV. LEV 00 silenzia la traccia: non cancella il comando. STOP ripristina il livello base salvato nel mixer.
 
 
 ### PAN Posizione stereo della traccia
@@ -3163,7 +3282,7 @@ Il timbro scende di 10 esadecimale per riga verso 40. Lo stesso comando agisce d
 
 Nelle Table. Operativo nelle Table, alla velocità TIC. Si applicano le regole comuni degli override del motore descritte all’inizio della famiglia.
 
-Da controllare. TIM non è una destinazione LFO universale in questa build. Le nuove mandate LFO POS sono specifiche del dual.
+Da controllare. TIM non è una destinazione LFO universale in Meighty. Le mandate LFO POS sono specifiche del dual.
 
 
 ### COL Color del modello Braids
@@ -3643,47 +3762,68 @@ Suono troppo corto: togli KIL/RET, porta AMP Sustain a C0 e scrivi OFF soltanto 
 
 ## Indice alfabetico dei comandi FX
 
-La sigla apre la scheda del capitolo 12. I numeri indicano pagine del presente documento. Per imparare le combinazioni parti invece dal capitolo 11.
+Ogni sigla corrisponde alla scheda del capitolo 12. Nel PDF le sigle dell’indice sono collegamenti interni; i segnalibri consentono di aprire anche la singola scheda. Per imparare le combinazioni usa il laboratorio del capitolo 11.
 
-FX | Pagina | FX | Pagina | FX | Pagina
-
---- | 53 | LEV | 73 | RNL | 66
-
-ARC | 60 | MDL | 77 | RSN | 75
-
-ARP | 59 | NTH | 65 | RTO | 68
-
-CHA | 63 | OFF | 54 | SCA | 61
-
-CHN | 64 | OR1 | 83 | SCG | 62
-
-CND | 64 | OR2 | 84 | SED | 66
-
-COL | 78 | OR3 | 84 | SNG | 57
-
-CUT | 72 | OR4 | 85 | STA | 76
-
-DEL | 53 | OSM | 82 | STP | 70
-
-DSN | 74 | PAN | 74 | SYN | 82
-
-DTN | 81 | PBN | 60 | TBL | 69
-
-FAI | 79 | PIT | 59 | THO | 69
-
-FAL | 79 | PRV | 65 | TIC | 70
-
-FBK | 80 | PSL | 56 | TIM | 77
-
-HOP | 56 | PVB | 61 | TPO | 71
-
-INS | 58 | PWM | 73 | TSP | 62
-
-JMP | 57 | REP | 67 | VOL | 72
-
-KIL | 54 | RET | 55 | WT2 | 81
-
-LEN | 76 | RND | 67 | WTP | 80
+FX | Argomento
+--- | ---
+[---](#fx-none) | Colonna vuota
+[ARC](#fx-arc) | Velocità dell’arpeggio
+[ARP](#fx-arp) | Arpeggio monofonico a tre altezze
+[CHA](#fx-cha) | Probabilità dei lati della riga
+[CHD](#fx-chd) | Accordi e sovrapposizione su tre voci
+[CHN](#fx-chn) | Probabilità dell’evento immediatamente a sinistra
+[CND](#fx-cnd) | Condizione sul giro
+[COL](#fx-col) | Color del modello Braids
+[CUT](#fx-cut) | Apertura del filtro
+[DEL](#fx-del) | Ritardo della riga
+[DSN](#fx-dsn) | Mandata al delay master
+[DTN](#fx-dtn) | Detune del secondo oscillatore
+[FAI](#fx-fai) | Indice globale FM4
+[FAL](#fx-fal) | Algoritmo dei quattro operatori
+[FBK](#fx-fbk) | Feedback dell operatore quattro
+[HOP](#fx-hop) | Passaggio alla Phrase successiva
+[INS](#fx-ins) | Cambio strumento con retrigger
+[JMP](#fx-jmp) | Salto nella Phrase corrente
+[KIL](#fx-kil) | Interruzione immediata o programmata
+[LEN](#fx-len) | Lunghezza della regione PCM
+[LEV](#fx-lev) | Livello del mixer della traccia
+[MDL](#fx-mdl) | Modello di sintesi della voce
+[NTH](#fx-nth) | Esecuzione periodica dei lati
+[OFF](#fx-off) | Rilascio o spegnimento differito
+[OR1](#fx-or1) | Rapporto di frequenza di OP1
+[OR2](#fx-or2) | Rapporto di frequenza di OP2
+[OR3](#fx-or3) | Rapporto di frequenza di OP3
+[OR4](#fx-or4) | Rapporto di frequenza di OP4
+[OSM](#fx-osm) | Bilanciamento dei due oscillatori
+[PAN](#fx-pan) | Posizione stereo della traccia
+[PBN](#fx-pbn) | Deriva progressiva di intonazione
+[PIT](#fx-pit) | Trasposizione relativa della voce
+[PRV](#fx-prv) | Condizione sull’esito precedente
+[PSL](#fx-psl) | Portamento fra note
+[PVB](#fx-pvb) | Vibrato a tick
+[PWM](#fx-pwm) | Larghezza dell’impulso
+[REP](#fx-rep) | Ripetizione con incremento
+[RET](#fx-ret) | Retrigger e rampa di volume
+[RND](#fx-rnd) | Variazione casuale del comando ricordato
+[RNL](#fx-rnl) | Variazione dell’evento a sinistra
+[RSN](#fx-rsn) | Mandata al riverbero master
+[RTO](#fx-rto) | Limite del repeater
+[SCA](#fx-sca) | Scala locale della traccia
+[SCG](#fx-scg) | Scala locale per tutte le tracce
+[SED](#fx-sed) | Inizializzazione del generatore casuale
+[SNG](#fx-sng) | Salto relativo nella Song
+[STA](#fx-sta) | Inizio della regione PCM
+[STP](#fx-stp) | Arresto della Table
+[SYN](#fx-syn) | Hard sync dei due oscillatori
+[TBL](#fx-tbl) | Selezione e riavvio della Table
+[THO](#fx-tho) | Salto a una riga della Table
+[TIC](#fx-tic) | Durata delle righe Table
+[TIM](#fx-tim) | Timbre del motore
+[TPO](#fx-tpo) | Tempo globale
+[TSP](#fx-tsp) | Trasposizione globale
+[VOL](#fx-vol) | Volume della voce
+[WT2](#fx-wt2) | Posizione della seconda wavetable
+[WTP](#fx-wtp) | Posizione della prima wavetable
 
 
 ## Trovare una combinazione
@@ -3760,7 +3900,7 @@ Il catalogo conserva i primi otto riferimenti usati dalle demo, poi aggiunge art
 
 ## Glossario essenziale
 
-Voce. Il suono in esecuzione di una traccia. La traccia resta monofonica anche se il motore usa più oscillatori.
+Voce. Un suono con i propri oscillatori, filtro e inviluppi. La traccia selezionata in Poly 3 track contiene fino a tre voci; un motore con due oscillatori non crea da solo due voci polifoniche.
 
 Preset e Instrument. Il preset è una voce del catalogo; Instrument è la copia modificabile in uno slot del progetto.
 
@@ -3774,15 +3914,15 @@ Tick e riga. Il tick è una frazione del quarto; sei tick formano una riga Phras
 
 Scala e trasposizione. La scala sceglie i gradi ammessi; la trasposizione sposta le altezze.
 
-Stato e slot. Lo slot contiene un progetto; lo stato RemoteFM1 conserva l’intera memoria con tutti gli slot.
+Progetto e backup. Un progetto descrive un brano; un backup .meighty può conservare gli otto slot e la copia in lavorazione. Non è una registrazione del suono né del punto esatto del motore in esecuzione.
 
 
-## Capacità e confini della build
+## Capacità e limiti
 
-Otto tracce monofoniche, 64 Phrase, 32 Chain, 32 righe Song, 32 Instrument, 16 Table, 33 campioni e 177 preset. Sono presenti 18 modelli, quattro banchi wavetable, due LFO per suono, ADSR comune e del filtro, quattro inviluppi operatore FM4, delay e riverbero master. Il progetto occupa 11940 byte; palette e meter non cambiano il suo formato.
+Otto tracce, di cui una a scelta può suonare tre voci simultanee e le altre sette restano monofoniche; 64 Phrase, 32 Chain, 32 righe Song, 32 Instrument, 16 Table, 33 campioni e 177 preset. Sono presenti 18 modelli, quattro banchi wavetable, due LFO per suono, ADSR comune e del filtro, quattro inviluppi operatore FM4, delay e riverbero master. Il progetto occupa 11944 byte; il file .meighty conserva anche la scelta della traccia polifonica e tutti i comandi CHD.
 
-Le probabilità non riscrivono le note della Phrase. Non esiste un comando che riempia automaticamente una Phrase con un ritmo euclideo, né un editor automatico che sposti le celle: puoi scrivere il disegno, usare cicli locali o variare il percorso di una Table. Un generatore esterno deve esportare dati compatibili, non un file M8 da aprire direttamente.
+Le probabilità non riscrivono le note della Phrase. Non esiste un comando che riempia automaticamente una Phrase con un ritmo euclideo, né un editor automatico che sposti le celle: puoi scrivere il disegno, usare cicli locali o variare il percorso di una Table. Un generatore esterno deve esportare dati compatibili, non un file di un altro tracker da aprire direttamente.
 
-Il target RemoteFM1 gestisce MASTER, anteprima MIDI monofonica, Start/Continue/Stop e All Notes Off. Non aggiunge MIDI clock esterno, velocity/pressione espressiva, MIDI out o il protocollo di backup USB della build fisica. I controlli grafici mostrano lo stato dei parametri: non sono tutti elementi direttamente toccabili sul display.
+Meighty 1.02 è il firmware per il FM-1 fisico. Gli ambienti di emulazione sono separati: la possibilità di importare un formato non implica che quell’ambiente riproduca tutte le funzioni, in particolare la polifonia e CHD. Il convertitore rifiuta esportazioni che perderebbero dati musicali.
 
-Riferimento tecnico: sorgenti tracker.c, commands.c, sound.inc, engines.inc, effects.inc, project_store.inc e device.c della build follow-20261105. Le prove degli esempi sono nel pacchetto del manuale. Caricatore ufficiale, motore e stati sono verificati sul Mac; dispositivo FM1, iOS e AUv3 restano da collaudare nell’ambiente reale.
+I controlli del FM-1 sono fisici: le manopole e gli inviluppi disegnati sullo schermo forniscono un riscontro dei parametri, non un’interfaccia touch.

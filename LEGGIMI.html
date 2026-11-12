@@ -1,31 +1,14 @@
-<!doctype html><meta charset="utf-8"><title>Meighty RC7</title><style>body{max-width:850px;margin:35px auto;padding:20px;font:17px/1.6 system-ui;background:#071e20;color:#edf9f6}pre{white-space:pre-wrap;font:inherit}a{color:#70dfd0}</style><a href="Meighty.html">Apri Meighty</a><p><a href="Manuale-Meighty.pdf">Manuale italiano RC7 / Tools 2.1 in PDF (85 pagine)</a></p><pre>MEIGHTY 1.01 RC7 / HW16 — TOOLS 2.1
+<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Meighty 1.02 — Guida</title><style>body{max-width:960px;margin:auto;padding:24px;font:17px/1.6 system-ui;color:#173639;background:#f7fcfb}h1,h2,h3{color:#087e83}table{border-collapse:collapse;width:100%;font-size:14px}td{border:1px solid #c5d9d7;padding:8px}tr:nth-child(odd){background:#e9f4f2}pre{white-space:pre-wrap;background:#e9f4f2;padding:16px;font-size:14px}a{color:#087e83}</style><a href="index.html">Apri gli strumenti</a><pre>Meighty 1.02
 
-FIRMWARE
-Entrando in Chain da Song si apre la Chain della cella scelta; SELECT sceglie la Chain della nuova traccia e il numero Cxx è visibile in alto.
-SELECT nella pagina Phrase segue la nuova traccia: durante PLAY la frase in esecuzione, da fermo la posizione Song/Chain selezionata. P-- / NO PHRASE indica una posizione non assegnata; K3 permette comunque la scelta manuale dal pool.
-Slot sempre pronti: Load apre, Save salva, Clear svuota con una conferma.
-S1–S8 sul display indica lo slot effettivamente aperto; S-- indica un progetto non associato.
-La destinazione scelta in Global è distinta dal progetto aperto. SAVE fisico salva lo slot aperto; Save slot in Global salva nella destinazione scelta.
-Uno slot senza un progetto valido si apre vuoto, senza scritture. Clear salva invece un progetto vuoto persistente.
+Apri https://gfcalvi.github.io/meighty-fm1/
 
-TOOLS
-Quattro schede: Firmware; Backup ed estrazione; Conversione; Ripristino / Caricamento.
-Backup: scarica gli otto slot e la copia in lavorazione oppure esporta solo il progetto aperto. Puoi aprire un backup esistente ed estrarne i brani singoli o tutti in ZIP.
-Conversione: scegli file e formato, poi Converti e scarica. È indipendente dalle altre schede.
-Ripristino: apri backup/set oppure scegli un file nelle singole caselle 1–8. Premi Carica gli slot selezionati. Vengono scritti e verificati SOLTANTO gli slot compilati; le caselle Non modificare lasciano invariati i corrispondenti slot FM-1. Alla fine si apre il primo brano caricato: poi PLAY.
-Esempio: un file nella casella2 scrive SOLO slot2; file nelle caselle2 e7 scrivono SOLO2 e7. Una selezione vuota non scrive nulla. Nessuna cancellazione implicita.
-Salva set su file conserva la scelta anche con meno di otto brani. Azzera la selezione agisce solo sulle caselle locali. La copia RAM di un backup è disponibile nei menu come brano separato.
-Load, Save e Clear si usano sul firmware: il blocco Gestisci uno slot è stato rimosso dai tools. Non servono Init, Prepara o backup obbligatorio. I log sono chiusi nei Dettagli tecnici. Lo slot aperto sempre visibile riguarda solo il firmware.
+iPhone/iPad: usa MIDIWeb Browser, scegli Make Available Offline e collega FM-1 via USB. Dopo la preparazione non servono rete, Mac o Wi-Fi. Scarica separatamente il manuale PDF in File.
 
-INSTALLAZIONE / iPHONE
-Apri https://gfcalvi.github.io/meighty-fm1/ in Chrome Mac/PC o MIDIWeb Browser su iPhone/iPad USB-C.
-Pagina Firmware → Installa RC7 → conferma. Non scollegare durante la scrittura.
-Su MIDIWeb aggiorna Make Available Offline dopo aver caricato la nuova pagina HTTPS: sostituisce la vecchia copia; il Mac non serve in mobilità.
-La gestione diretta degli slot richiede RC7/HW16. Il ritorno alla RC3 rimane in Ritorno-RC3.html.
-Nel pacchetto iOS non servono launcher .command. Sul Mac il launcher richiede Python3; il sito HTTPS evita il launcher.
+Mac/PC: apri lo stesso indirizzo in Chrome o Edge e collega FM-1 via USB.
 
-VERIFICHE E LIMITI
-259 controlli client reale/dispatcher C su NOR simulata, inclusi tutti gli slot, riavvio, dati estranei e scritture interrotte. 116 controlli dei nuovi handler dei tools collegati allo stesso dispatcher.
-Regressioni native editor/DSP, loader e OTA superate. I nuovi tools non sono ancora collaudati fisicamente su iPhone/Mac; il test hardware degli slot 2–8 resta da confermare.
-Il manuale italiano completo aggiornato è incluso come Markdown e PDF. Nessuna nuova prova audio fisica è dichiarata.
-</pre>
+Firmware installa Meighty. Backup ed estrazione conserva gli otto slot e permette di estrarre i brani. Conversione lavora sui file senza collegamento. Ripristino / Caricamento scrive soltanto gli slot selezionati e apre il primo trasferito; gli altri restano invariati.
+
+Sul dispositivo, Global sceglie lo slot destinazione; Load apre, Save salva, Clear azzera con conferma. Lo slot effettivamente aperto resta indicato sul display. Un Load da slot vuoto apre un progetto nuovo.
+
+Per la polifonia scegli Global → Poly 3 track. Il manuale contiene comandi, esempi e limiti.
+</pre></html>

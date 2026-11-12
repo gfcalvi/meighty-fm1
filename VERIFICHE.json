@@ -1,14 +1,13 @@
 {
-  "firmware": "1.01 RC7",
-  "hardware": 16,
-  "suite": "2.1",
-  "sha256": "76934be5b16dcff69633b1dade5c10c69a2f7b14997d5b82d229254344ae8ec0",
-  "native_client_checks": 259,
-  "ui_handler_checks": 116,
-  "regressions": "editor/DSP, loader and OTA pass",
-  "hardware_browser_validation": "pending; CoreMIDI client unavailable (-10833); no physical writes during these tests",
-  "loaded_slot_indicator": "firmware only",
-  "code_headroom_bytes": 32,
-  "navigation_regression": "all eight tracks, Song/Chain context, live follow, empty edit guard and Oltre LEV reproduction pass",
-  "inherited_slot_checks": "259 RC6 backend checks inherited; 116 Tools2.1 handler checks freshly run; slot backend unchanged"
+  "release": "1.02",
+  "firmware_sha256": "488b293b084de05563e439ac91b756b80dc3192fddf6421e1578430f5681d9f5",
+  "pages": 89,
+  "tools_checks": 126,
+  "physical_test": {
+    "max_us": 2721,
+    "late": 0,
+    "misses": 0,
+    "budget_us": 2902
+  },
+  "scope": "Collaudo del dispositivo e del progetto di stress riportati; iOS USB non collaudato automaticamente."
 }
