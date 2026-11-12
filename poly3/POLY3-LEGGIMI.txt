@@ -1,20 +1,31 @@
-MEIGHTY 1.02 A11 / HW27 — POLY3 — TOOLS 2.2
+MEIGHTY 1.02 A12 / HW28 — DIAGNOSTICA SCHEDULAZIONE — TOOLS 2.2
 
-Candidata per aumentare il margine audio mantenendo tre voci su una traccia e sette tracce monofoniche. Il sito principale conserva RC7.
+Questa build osserva le interruzioni e le sezioni critiche. Non è una nuova ottimizzazione o una correzione già dimostrata dei LATE. Conserva suoni, tre voci, altri sette canali, filtri, effetti, priorità e comportamento dei controlli di HW27.
 
-COSA CAMBIA RISPETTO AD A10 / HW26
-Filtri, risonatori ed alcuni calcoli Braids usano una moltiplicazione equivalente quando il coefficiente è positivo: si moltiplica il valore assoluto unsigned e si ripristina il segno dopo lo shift. Questo conserva il troncamento verso zero del prodotto signed a 64 bit ed evita parte delle istruzioni per estendere e correggere il segno.
-Sono modificati solo i punti dove il coefficiente è non negativo per costruzione. I coefficienti di segno variabile mantengono la formula precedente. Il codice compilato per PI32v2 è stato ispezionato: la nuova forma richiede meno istruzioni nel confronto isolato. Questo non è una misura del guadagno audio complessivo.
-Tre voci, suoni, filtri, risonanze, inviluppi, campioni, effetti, tabelle, risoluzione e frequenze di elaborazione restano invariati. Le ottimizzazioni precedenti sono conservate; nessun cambio a progetti, slot o protocolli.
+PERCHÉ SERVE
+HW27, prova breve: MAX 2632 µs, LATE 0, MISSES 0, margine 270 µs. Prova lunga interattiva: MAX 2724 µs, LATE 26, MISSES 0, margine 178 µs; audio confermato senza nuove interruzioni.
+MISSES conta i gestori audio la cui durata misurata supera 69632 tick (circa 2902 µs). LATE aumenta se la metà DMA libera cambia fra il campionamento iniziale e il controllo dopo scrittura/sync/ack. Un gestore può durare meno del budget ma arrivare alla scadenza DMA se è partito tardi; il controllo è conservativo e non dimostra da solo un'interruzione udibile. I contatori includono anche startup e caricamento, non soltanto PLAY. Per questo serve una lettura prima della riproduzione.
 
-INSTALLAZIONE E CONFRONTO
-1. Apri la pagina HTTPS, tab Firmware, scegli Installa 1.02 A11 e conferma la scrittura. Mantieni cavo e alimentazione durante l’update.
-2. Verifica GLOBAL: 1.02 A11; Leggi carico audio deve riportare HW27. Se mostra una versione precedente aggiorna la pagina prima di installare.
-3. Riavvia per azzerare i massimi. Carica lo stesso Poly3-Stress-10-voices.meighty, con Poly 3 track = T8. Non inizializzare gli slot.
-4. Seleziona T1 con SELECT, apri Instrument e scegli I10 (esadecimale, FM4) con K3. PLAY con un Do centrale tenuto per 60 secondi a volume basso. Rilascia, STOP e Leggi carico audio.
-5. Riporta tutta la lettura MAX/LATE/MISSES, PREP/CPU0/CPU1/ATTESA/MIX-FX, DIV/SHIFT/CHECK e qualità audio. CPU1 è parallelo e non va sommato a CPU0.
-Riferimento HW26: MAX 2653 µs, LATE 0, MISSES 0; costi 99/2017/2472/175/318 µs. Budget 2902 µs, margine osservato 249 µs. L’obiettivo indicativo rimane 300–400 µs; HW27 deve ancora essere misurata sul chip.
-Per tornare a HW26 usa Ritorno-A10.html. Restano disponibili HW25, HW24, A6 e RC7. Su iPhone in MIDIWeb Browser aggiorna Make Available Offline e salva separatamente anche la pagina di ritorno per usarla senza rete.
+COSA VIENE MISURATO
+La vecchia misura DIV/SHIFT all’avvio, già ripetutamente confermata su HW24–HW27, è sostituita dalle nuove osservazioni; non vengono restituiti risultati fittizi del benchmark. Il codice sonoro non cambia. Le misure aggiungono un piccolo carico, non ancora quantificato sul dispositivo.
+Leggi carico audio mostra:
+- IRQ off MAX: più lunga sezione esterna con interrupt disabilitati, mentre il DMA audio è attivo. Le sezioni annidate non riavviano la misura.
+- TIMER5 MAX: durata massima del gestore timer/input/USB, mentre l’audio è attivo.
+- GAP MAX: massimo intervallo fra ingressi consecutivi nel gestore audio. Riavvio del DMA e primo ingresso sono esclusi; non è una misura assoluta della latenza d’ingresso.
+- LATE più lungo, durata: durata fino al controllo DMA del più lungo gestore che ha incrementato LATE.
+- GAP dell’evento: intervallo fra ingressi relativo a quello stesso LATE.
+- IRQ off recente e sua età: ultima sezione critica terminata entro circa un periodo audio prima dell’ingresso di quell’evento.
+- TIMER5 recente: durata dell’ultimo timer concluso entro circa un periodo prima di quell’ingresso. Un campione incoerente per una preemption viene scartato.
+Zero nei campi recenti indica nessun campione valido nella finestra; tutti zero nei campi LATE indica nessun evento registrato. I massimi globali possono riferirsi a eventi diversi; solo gli ultimi quattro valori accompagnano il LATE più lungo. Sono correlazioni, non una prova automatica della causa.
+I massimi restano dall’accensione. Il caricamento arresta/riavvia il DMA: il GAP scarta la pausa intenzionale ma conserva i massimi precedenti. Le letture non modificano progetti o slot.
+
+INSTALLAZIONE E PROVA
+1. Apri la pagina HTTPS, tab Firmware, scegli Installa 1.02 A12 e conferma. Mantieni cavo e alimentazione durante l’update.
+2. Verifica GLOBAL: 1.02 A12 e Leggi carico audio: HW28. Su iPhone aggiorna Make Available Offline della nuova pagina.
+3. Riavvia e carica lo stesso progetto stress con Poly T8. Prima di PLAY premi Leggi carico audio e conserva la lettura completa: è il riferimento che separa caricamento e riproduzione.
+4. Seleziona T1 / I10 (FM4) e ripeti la prova lunga navigando fra le pagine, modificando cutoff/risonanza/mandate e suonando dalla tastiera. Non serve salvare o ricaricare durante questa prova.
+5. STOP, Leggi carico audio e invia entrambe le letture, inclusa tutta la parte Schedule. Riporta eventuali nuove interruzioni udibili. Se LATE era già presente prima di PLAY e non aumenta, non attribuirlo alla navigazione durante PLAY.
+Non occorre ripetere separatamente pad, release e Save/Load già confermati. Per tornare alla versione sonoramente collaudata usa Ritorno-A11.html (HW27); restano anche i ritorni precedenti. Salva separatamente la pagina di ritorno se vuoi usarla offline.
 
 USO DELLA POLIFONIA
 GLOBAL → Poly 3 track → OFF oppure T1–T8 con K2. La scelta viene salvata nel progetto. La traccia scelta suona tre note vere, con filtri, inviluppi e rilasci indipendenti; le altre sette restano monofoniche. Mixer, mute/solo e mandate appartengono al gruppo. Alla quarta nota si riusa una voce libera oppure la più vecchia.
@@ -27,6 +38,7 @@ Questa suite 2.2 ha quattro tab: Firmware, Backup/estrazione, Conversione, Ripri
 I vecchi progetti da 11940 byte sono migrati; quelli attuali ne usano 11944. Le banche polifoniche usano .meighty v2/schema2. Non ridurre i progetti polifonici per i vecchi firmware; conserva un backup .meighty prima di un eventuale ritorno. I dati musicali restano locali al browser.
 
 VERIFICHE
-9001512 confronti dei prodotti signed32 per unsigned32 contro il prodotto signed64 originale, incluso INT32_MIN, intero intervallo dei coefficienti e nove quantità di shift. 524288 frame dei filtri confrontati col codice congelato HW26: legacy/ADSR, quattro modi, tutte le 256 risonanze, inviluppo cutoff, rilascio e stato completo della voce.
-Restano passati i 7370775 controlli delle interpolazioni, i confronti FM4 ed effetti con i riferimenti congelati e i 17 test host con ASan/UBSan e ThreadSanitizer. Audio gold A1: 1152000 frame identici; stress nativo 60 s/1920000 frame/11 voci con hash invariato. Live 2432 casi, cache 1536 blocchi, sparse 432 casi, renderer 1216000 frame e ricampionamento 258174 frame esatti. Tools: 123 controlli dei veri handler JavaScript collegati al core C, tutti gli otto slot. OTA, loader, limiti memoria, copia codice RAM e integrità dei pacchetti verificati.
-I test software non misurano il tempo reale sul dispositivo. Nessuna promozione automatica a stabile prima del collaudo.
+18 test host passati (ASan/UBSan e ThreadSanitizer per il renderer). Nuova diagnostica verificata con orologi simulati: startup/stop esclusi, riavvio DMA e primo GAP esclusi, wrap del timer, finestra temporale, snapshot dell’evento e conservazione del LATE più lungo. Sono test logici: non misurano latenze del chip né dimostrano l’assenza di ritardi reali.
+Restano passati 9001512 confronti dei prodotti, 524288 frame filtro contro HW26, 7370775 interpolazioni, FM4 ed effetti congelati, gold A1 1152000 frame identici e stress nativo 1920000 frame/11 voci con hash invariato. Live 2432 casi, cache 1536 blocchi, sparse 432, renderer 1216000 frame e ricampionamento 258174 frame esatti.
+Tools: 125 controlli dei veri handler JavaScript e del core C, inclusi profilo interrupt e rifiuto di risposte troncate/errore. 123 controlli con gli stessi tools collegati a HW27 confermano la compatibilità precedente, inclusa la vecchia misura DIV/SHIFT. Tutti gli otto slot, import sparsi, OTA, loader, immagine e copie RAM sono verificati.
+Il nuovo comando diagnostico read-only è 0x6e: status + otto uint32 in microsecondi. 0x67 e 0x6c restano invariati; 0x6d non è disponibile su HW28. I tools aggiornati scelgono la query in base alla versione. Usa questa pagina /poly3 per HW28.

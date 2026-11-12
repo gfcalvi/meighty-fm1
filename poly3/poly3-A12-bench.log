@@ -1,0 +1,1 @@
+PASS boot math benchmark:12 clock calls, both checksum streams match,8192operations; fake timings validate API only, not physical speed

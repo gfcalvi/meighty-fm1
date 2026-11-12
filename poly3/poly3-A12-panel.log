@@ -1,0 +1,20 @@
+PASS: per-instrument SYNTH/PCM routing on opposite track families and source bounds
+PASS: isolated keyboard audition, note release, stopped transport, retained Song instrument, persistent preset names
+PASS: 177 named presets, valid bounds, audio on SYN/PCM tracks, native ARP/K1/REC loader
+PASS: native Mixer K1-K4, mute/solo, Master FX division, saved mixer/FX roundtrip
+PASS: Instrument button cycles two native pages, preserves slot, REC does not switch, full modulation UI bounds
+PASS: Song OCT-minus mute/OCT-plus solo, toggle off, selected track 7, shared mixer masks
+PASS: native cutoff envelope dashboard, live preview marker, main page redraw, ambient mode bounds
+PASS: Global K3 load and K4 save roundtrip
+PASS: Global GLO/HOME mixer/SEQ FX, global-only BPM, transactional project generations, interrupted saves and direct reuse of legacy slot bytes
+PASS: contextual synth/sample navigation and distinct FM4 algorithm/operator controls
+PASS: native family selection and three-page FM4/dual cycle with slot preserved
+PASS: device adapter, 44.1 kHz output, controls, five views, LCD bounds, stop
+PASS: all eight hardware slots persist independently below OTA staging
+PASS: palette bounds, Global navigation, custom colours persist, project layout and tempo unchanged
+PASS physical project protocol: snapshot/chunks, ordered writes, failed commit preservation, slot readback, timeout, bounds
+PASS: mixer LED column displays keyboard audition and clears on Stop
+PASS: empty Load without init/erase; persistent Clear slot confirmation, cancellation and timeout; clearing inactive slot preserves RAM; active Clear updates RAM; loaded slot differs from selected destination
+PASS: Song PLAY starts selected row on all eight tracks; live REC launches on next global six-tick boundary, preserves clock/FX tails/project; latest request wins, invalid rows refused, Stop cancels queue
+PASS: real LCD Song follows beyond row 12; Phrase follows row 0F and changes object across Chain; manual edit holds position, page key resumes, all Instrument pages share prominent I1F badge distinct from I00
+PASS Poly3 physical Global/keyboard/chord record, mono preview elsewhere, save/load all8, CRC-valid11940 -> 11944 migration, config persistence, invalid config rejected

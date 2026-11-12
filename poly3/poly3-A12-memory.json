@@ -1,0 +1,10 @@
+{
+  "secondary_ram_bytes": 600,
+  "secondary_image_matches_ELF": true,
+  "boot_order": "copy secondary RAM -> device init -> CPU1/audio; math benchmark replaced by scheduler diagnostics",
+  "rom_remaining": 136,
+  "ramtext_remaining": 1056,
+  "bss_to_stack_guard": 6412,
+  "project_bytes": 11944,
+  "voice_runtime_cache_only": true
+}

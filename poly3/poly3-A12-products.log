@@ -1,0 +1,1 @@
+PASS 9001512 signed32 x unsigned32 product checks (including INT32_MIN/full gain and9shifts); 524288 filter frames vs frozen HW26:legacy/ADSR,4modes,256resonances,cutoff envelope,release and full voice state

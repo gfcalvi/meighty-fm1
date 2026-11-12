@@ -1,0 +1,31 @@
+{
+  "version": "1.02 A11",
+  "build": 27,
+  "firmware_sha256": "19225230953ec89b99f60de59ac4d4d2a1038d1f15de407259357fa87421e934",
+  "source": "user report following requested prolonged interactive stress",
+  "max_us": 2724,
+  "late": 26,
+  "misses": 0,
+  "budget_us": 2902,
+  "margin_us": 178,
+  "cost_us": {
+    "prep": 104,
+    "cpu0": 2129,
+    "cpu1": 2358,
+    "wait": 3,
+    "mix_fx": 451
+  },
+  "cpu_benchmark": {
+    "iterations": 8192,
+    "division_us": 682,
+    "shift_us": 364,
+    "checksum_xor": 0
+  },
+  "audio": "user explicitly confirmed no new audible interruptions; same audio as prior stress",
+  "late_definition": "DMA free-half changed between handler initial sample and post-sync/ack check",
+  "misses_definition": "measured handler body duration exceeded69632 timer ticks",
+  "entry_latency_measured": false,
+  "counter_baseline_before_play": "not recorded; counters also include startup/project load",
+  "full_hardware_qualification": false,
+  "result": "duration within budget but26 DMA-half crossings; investigate scheduling, not qualify as zero-deadline-misses"
+}
