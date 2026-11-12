@@ -1,19 +1,19 @@
 {
   "target": "FM1 hardware candidate PI32v2",
-  "image_bytes": 552552,
+  "image_bytes": 552468,
   "package_bytes": 611083,
-  "sha256": "f33065cd6662fbe5731bfd002a3250a5dd839023235d085e2ef26e4c4e913ccb",
+  "sha256": "3a2049dd05534f28326e17db37cf78b52c429443fe613f541caf53ec160ef3c4",
   "storage": "8 transactional slots 0xaf000..0xdefff; OTA 0xe0000..0xe4fff excluded",
   "hardware_validated": false,
-  "version": "1.02 A9",
-  "build": 25,
-  "product": "FM-1_998210",
+  "version": "1.02 A10",
+  "build": 26,
+  "product": "FM-1_998211",
   "suite": "2.2",
   "project_bytes": 11944,
   "previous_project_bytes": 11940,
-  "physical_usb": "HW25 not yet measured; HW24 reference 2791/0/0",
-  "prior_A8_live": [
-    2791,
+  "physical_usb": "HW26 not yet measured; HW25 reference 2675/0/0 with good audio",
+  "prior_A9_live": [
+    2675,
     0,
     0
   ],
@@ -42,11 +42,13 @@
     "secondary_ram_bytes": 692,
     "secondary_image_matches_ELF": true,
     "boot_order": "copy secondary RAM -> math benchmark -> device init -> CPU1/audio",
-    "rom_remaining": 120,
-    "ramtext_remaining": 668,
+    "rom_remaining": 204,
+    "ramtext_remaining": 752,
     "bss_to_stack_guard": 6380,
     "project_bytes": 11944,
     "voice_runtime_cache_only": true
   },
-  "fallback": "Ritorno-A8.html"
+  "fallback": "Ritorno-A9.html",
+  "interpolation_oracle_checks": 7370775,
+  "exact_bounded_interpolation": true
 }

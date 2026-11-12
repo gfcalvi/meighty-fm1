@@ -1,0 +1,31 @@
+{
+  "version": "1.02 A9",
+  "build": 25,
+  "firmware_sha256": "f33065cd6662fbe5731bfd002a3250a5dd839023235d085e2ef26e4c4e913ccb",
+  "source": "user report from physical FM-1",
+  "max_us": 2675,
+  "late": 0,
+  "misses": 0,
+  "budget_us": 2902,
+  "margin_us": 227,
+  "margin_percent": 7.82,
+  "cost_us": {
+    "prep": 101,
+    "cpu0": 2125,
+    "cpu1": 2478,
+    "wait": 85,
+    "mix_fx": 326
+  },
+  "cpu_benchmark": {
+    "iterations": 8192,
+    "division_us": 682,
+    "shift_us": 364,
+    "checksum_xor": 0,
+    "scope": "complete PRNG and division/shift loops, not isolated instruction latency"
+  },
+  "audio": "good; user explicitly confirmed, same quality as previous passing tests",
+  "result": "no deadline misses observed; 227us margin, below intended 300-400us target",
+  "hardware_smoke_passed": true,
+  "full_hardware_qualification": false,
+  "note": "CPU1 is parallel; component timings from different maximum blocks do not isolate causal changes. Published firmware remains unchanged."
+}
