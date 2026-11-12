@@ -1,0 +1,1 @@
+PASS 2432 live cases:19models inclPCM x8poly tracks x8preview channels xactive/inactive; exact scalar/threaded audio, voice+preview send rounding and full state

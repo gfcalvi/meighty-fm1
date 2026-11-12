@@ -1,0 +1,11 @@
+{
+  "secondary_code_bytes": 600,
+  "helper_bytes": 600,
+  "secondary_lma": "0x2086adc",
+  "secondary_vma": "0x1c08000",
+  "boot_copy_before_device_init": true,
+  "image_copy_matches_ELF": true,
+  "rom_remaining": 668,
+  "ramtext_remaining": 916,
+  "bss_to_stack_guard": 6796
+}

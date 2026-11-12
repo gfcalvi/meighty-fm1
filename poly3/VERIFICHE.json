@@ -1,14 +1,14 @@
 {
   "target": "FM1 hardware candidate PI32v2",
-  "image_bytes": 551328,
+  "image_bytes": 552004,
   "package_bytes": 611083,
-  "sha256": "7e9e300a7a163c3771ffa1cb31e9e35580f73ef3907de7eae1494dbd5302e8a3",
+  "sha256": "afedb97baca8a73209bc36de8db411c27a0ebd4df0c81abd7617734eb0efa696",
   "storage": "8 transactional slots 0xaf000..0xdefff; OTA 0xe0000..0xe4fff excluded",
   "hardware_validated": false,
-  "version": "1.02 A6",
-  "build": 22,
+  "version": "1.02 A7",
+  "build": 23,
   "suite": "2.2",
-  "product": "FM-1_998207",
+  "product": "FM-1_998208",
   "project_bytes": 11944,
   "previous_project_bytes": 11940,
   "mono_audio": "RC7 identical:19cases/608000frames",
@@ -22,7 +22,7 @@
   "host_sanitizers": "ASan/UBSan pass",
   "flash_regions": "unchanged",
   "font_lossless_saving": 6375,
-  "physical_usb": "A6 live physical test PASS: MAX2859us, LATE0, MISSES0, good audio;43us margin; full qualification not claimed",
+  "physical_usb": "A7 not tested; A6 physical live PASS MAX2859/0/0 with43us margin, good audio; live3notes/release PASS",
   "audio_vs_A1_frames": 1152000,
   "prior_A1_poly_off_idle": [
     1445,
@@ -91,22 +91,17 @@
   ],
   "physical_A5_pad_clean": true,
   "physical_A5_save_load_pass": true,
-  "hardware_smoke_passed": true,
-  "physical_A6_live": {
-    "max_us": 2859,
-    "late": 0,
-    "misses": 0,
-    "budget_us": 2902,
-    "margin_us": 43,
-    "cost_us": {
-      "prep": 104,
-      "cpu0": 2233,
-      "cpu1": 2541,
-      "wait": 3,
-      "mix_fx": 474
-    },
-    "audio": "good (user report)",
-    "voices": "10 sequencer voices plus keyboard preview on another track"
-  },
-  "physical_test_report": "COLLAUDO-HW22.json"
+  "settled_mixer_cache": true,
+  "cache_blocks": 1536,
+  "exact_lfo_rates": 256,
+  "secondary_ram_code_bytes": 600,
+  "prior_A6_live": [
+    2859,
+    0,
+    0
+  ],
+  "margin_target_us": [
+    300,
+    400
+  ]
 }
