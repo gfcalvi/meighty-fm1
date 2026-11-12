@@ -1,14 +1,14 @@
 {
   "target": "FM1 hardware candidate PI32v2",
-  "image_bytes": 548888,
+  "image_bytes": 548840,
   "package_bytes": 611083,
-  "sha256": "e028da9de67893864de439f3b9f985f867c8dbb30739c1025effdf3829961566",
+  "sha256": "544d477798f126f84d2ff2e837d6955d166828dcd325f3ed465faf5af1862066",
   "storage": "8 transactional slots 0xaf000..0xdefff; OTA 0xe0000..0xe4fff excluded",
   "hardware_validated": false,
-  "version": "1.02 A1",
-  "build": 17,
+  "version": "1.02 A2",
+  "build": 18,
   "suite": "2.2",
-  "product": "FM-1_998202",
+  "product": "FM-1_998203",
   "project_bytes": 11944,
   "previous_project_bytes": 11940,
   "mono_audio": "RC7 identical:19cases/608000frames",
@@ -22,5 +22,23 @@
   "host_sanitizers": "ASan/UBSan pass",
   "flash_regions": "unchanged",
   "font_lossless_saving": 6375,
-  "physical_usb": "not tested; CoreMIDI-10833"
+  "physical_usb": "A2 not tested; A1 stress FAIL; live3notes/release PASS",
+  "audio_vs_A1_frames": 1152000,
+  "prior_A1_poly_off_idle": [
+    1445,
+    0,
+    0
+  ],
+  "prior_A1_poly_off_play": [
+    3156,
+    2619,
+    2632
+  ],
+  "prior_A1_poly_on_play": [
+    3865,
+    8077,
+    8169
+  ],
+  "render_split": "5+5 forPoly,4+4 mono",
+  "braids_fm": "exact variable division cache"
 }

@@ -1,6 +1,6 @@
-<!doctype html><meta charset="utf-8"><title>Meighty Poly3</title><style>body{max-width:850px;margin:30px auto;padding:20px;font:16px/1.6 system-ui;background:#071e20;color:#edf9f6}pre{white-space:pre-wrap;font:inherit}a{color:#70dfd0}</style><a href="index.html">Apri candidata Poly3</a><pre>MEIGHTY 1.02 A1 / HW17 - POLY3 - TOOLS 2.2
+<!doctype html><meta charset="utf-8"><title>Meighty Poly3</title><style>body{max-width:850px;margin:30px auto;padding:20px;font:16px/1.6 system-ui;background:#071e20;color:#edf9f6}pre{white-space:pre-wrap;font:inherit}a{color:#70dfd0}</style><a href="index.html">Apri candidata Poly3</a><pre>MEIGHTY 1.02 A2 / HW18 - POLY3 - TOOLS 2.2
 
-Candidata per il collaudo fisico. Non sostituisce la versione stabile RC7 nel sito principale. La tenuta sul dispositivo non è ancora dimostrata dai soli test software.
+Candidata per il collaudo fisico. A1 ha fallito lo stress: PolyON MAX3865us/LATE8077/MISSES8169; prova pulita PolyOFF a riposo1445/0/0, dopo60s3156/2619/2632. A2 ripartisce5+5voci e memorizza esattamente la divisioneFM quando gli ingressi non cambiano. Nessuna riduzione di qualità. Audio verificato identico adA1 su18casi/1152000frame con cambi modello,Color,Timbre,LFO,glide e accordi. Miglioramento fisico da misurare. Non sostituisce la versione stabile RC7 nel sito principale. La tenuta sul dispositivo non è ancora dimostrata dai soli test software.
 
 USO
 Global → Poly 3 track → OFF oppure T1..T8 con K2. La scelta seleziona anche la traccia per l’editing. Le altre sette restano monofoniche. Il progetto conserva questa impostazione; nell’intestazione della traccia interessata compare 3V. Instrument mostra anche il contesto Tn / 3V accanto a Ixx.
@@ -16,7 +16,7 @@ I vecchi slot e i file.monofonici si aprono con PolyOFF. Non serve inizializzare
 Con A1 usa questa pagina/poly3 per backup/ripristino e conserva i backup.meighty. I tools2.1 non leggono i dati nuovi. Per tornare a RC7 usa Ritorno-RC7.html; i progetti polifonici richiedono la candidata per essere riprodotti. I file restano locali al browser.
 
 COLLAUDO SUL DISPOSITIVO
-1. Installa questa candidata dal tab Firmware e conferma nel pannello. L’installer verifica l’identità nuova FM-1_998202; in GLOBAL deve comparire1.02A1. Non scollegare durante la scrittura.
+1. Installa questa candidata dal tab Firmware e conferma nel pannello. L’installer verifica l’identità nuova FM-1_998203; in GLOBAL deve comparire1.02A1. Non scollegare durante la scrittura.
 2. Per la prima prova seleziona Global → Poly3track → T4, apri Instrument e premi tre tasti: ascolta la triade e i rilasci separati. In alternativa carica Poly3-Pad-one-track.meighty in una casella libera di Ripristino/Caricamento e premi PLAY: il pad suona sulla sola T4.
 3. Salva il progetto di stress in uno slot scelto da te, conservando prima eventuali brani che vuoi tenere. Gli altri slot restano invariati. Il file Poly3-Stress-10-voices.meighty usa T8 polifonica, tutte le altre tracce,18motori in sequenza,300BPM, filtri/LFO/delay/reverb. È rumoroso: prova a volume basso.
 4. Per misure pulite riavvia, carica lo slot del test e attendi5secondi senza PLAY. Leggi MAX/LATE nel tabFirmware con Leggi carico audio, oppure con OCT- e OCT+ insieme sul dispositivo. Poi PLAY per60secondi, STOP, rileggi. Il budget del blocco è2902us: vogliamo LATE0 e un massimo inferiore al budget, con margine.
