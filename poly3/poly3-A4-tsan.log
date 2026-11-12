@@ -1,0 +1,8 @@
+PASS 18 models x 8 selected tracks: 10 active voices, exact scalar/block/pthread stereo, independent chord pitches
+PASS PCM22.05/32kHz x all8 tracks: independent sample pitch/position and exact threaded output; replacing sample stops all10 voices
+PASS legacy synth/PCM source follows logical track; exact 11-voice preview; poly mixer/mute ramp advances once and silences all3 voices
+PASS live three-note overlap, individual Note Off, independent phase/envelopes, inactive-first/oldest stealing, track selection/off, invalid track
+PASS independent Table timbre/release and note velocity; Phrase cutoff controls group, VOL preserves older notes
+PASS group OFF/KIL, no stuck extra voices after Stop
+RAM: Tracker 258376 bytes; voice 692; render workspace 19800. Hardware timing remains unverified.
+PASS coarse profiling across both cores and timer wrap; all5 stages populated, audio/full DSP state unchanged

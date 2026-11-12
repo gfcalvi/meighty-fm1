@@ -1,0 +1,1 @@
+PASS block renderer: 1216000 exact stereo frames/state, scalar and pthread worker, 18 synth models/PCM, preview, tick boundaries, shared FX, random chunk sizes, stop/restart

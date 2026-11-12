@@ -1,14 +1,14 @@
 {
   "target": "FM1 hardware candidate PI32v2",
-  "image_bytes": 550368,
+  "image_bytes": 550696,
   "package_bytes": 611083,
-  "sha256": "4d7ac38c163db5ad90736aff38368b6243f52e9d96d9c139d07a6953ef595569",
+  "sha256": "076e18ce483b9b44759a59c87e29fcdc5c981796ae10239fcfda1ef88a5574f5",
   "storage": "8 transactional slots 0xaf000..0xdefff; OTA 0xe0000..0xe4fff excluded",
   "hardware_validated": false,
-  "version": "1.02 A3",
-  "build": 19,
+  "version": "1.02 A4",
+  "build": 20,
   "suite": "2.2",
-  "product": "FM-1_998204",
+  "product": "FM-1_998205",
   "project_bytes": 11944,
   "previous_project_bytes": 11940,
   "mono_audio": "RC7 identical:19cases/608000frames",
@@ -22,7 +22,7 @@
   "host_sanitizers": "ASan/UBSan pass",
   "flash_regions": "unchanged",
   "font_lossless_saving": 6375,
-  "physical_usb": "A3 not tested; A1/A2 stress FAIL; live3notes/release PASS",
+  "physical_usb": "A4 not tested; A1/A2/A3 stress FAIL; live3notes/release PASS",
   "audio_vs_A1_frames": 1152000,
   "prior_A1_poly_off_idle": [
     1445,
@@ -39,7 +39,7 @@
     8077,
     8169
   ],
-  "render_split": "5+5 forPoly,4+4 mono",
+  "render_split": "adaptive active voices;9->4+5,10->5+5",
   "braids_fm": "exact variable division cache",
   "partial_mixer": "parallel pan/sends with exact per-track ramp snapshots",
   "render_chunk": 128,
@@ -48,5 +48,19 @@
     3753,
     6573,
     6576
-  ]
+  ],
+  "prior_A3_poly_on_play": [
+    3183,
+    2411,
+    2478
+  ],
+  "prior_A3_cost": [
+    381,
+    2148,
+    1964,
+    0,
+    612
+  ],
+  "adaptive_split": true,
+  "nine_voice_cases": 432
 }
