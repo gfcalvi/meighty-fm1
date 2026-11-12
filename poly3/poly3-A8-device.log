@@ -1,0 +1,2 @@
+PASS device block resampler: 258174 output frames exactly match scalar 32000/44100 phase and full state across 2000 varying buffer sizes
+PASS diagnostics OCT chord preserves mute/solo on staggered press/release in either order

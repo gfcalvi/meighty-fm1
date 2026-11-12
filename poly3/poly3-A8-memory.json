@@ -1,0 +1,10 @@
+{
+  "secondary_ram_bytes": 692,
+  "secondary_image_matches_ELF": true,
+  "boot_order": "copy secondary RAM -> math benchmark -> device init -> CPU1/audio",
+  "distinct_native_div_and_signed_shift_in_kernel": true,
+  "benchmark_qualification": "full loop timings incl PRNG/loop overhead, not isolated instruction latency",
+  "rom_remaining": 400,
+  "ramtext_remaining": 948,
+  "bss_to_stack_guard": 6700
+}
